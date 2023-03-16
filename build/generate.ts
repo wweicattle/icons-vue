@@ -4,39 +4,21 @@ import consola from "consola"
 import chalk from "chalk"
 import { pathComponents } from "./paths"
 import { emptyDir, ensureDir } from "fs-extra"
-import findWorkspaceDir from "@pnpm/find-workspace-dir"
-import findWorkspacePackages from "@pnpm/find-workspace-packages"
 import { readFile, writeFile } from "node:fs/promises"
 import { format } from "prettier"
 import type { BuiltInParserName } from "prettier"
 import camelcase from "camelcase"
 
 consola.info(chalk.blue("generating vue components"))
-console.log(pathComponents)
-console.log(ensureDir)
 
 await ensureDir(pathComponents)
 await emptyDir(pathComponents)
 
-console.log(process.cwd())
 const getSvgFiles = async () => {
-  // debugger
-  // const pkgs = await // @ts-expect-error
-  // (findWorkspacePackages.default as typeof findWorkspacePackages)(
-  //   // @ts-expect-error
-  //   (await findWorkspaceDir.default(process.cwd()))!
-  // )
-  // const pkg = pkgs.find(
-  //   (pkg) =>{
-  //     console.log(pkg,191919);
-
-  //     return pkg.manifest.name === '@element-plus/icons-svg'
-  //   }
-  // )!
-  // console.log(4444,pkg.dir)
-  // console.log(process.cmd());
-  const dir = "/Users/chenbin/Desktop/代码/TqIcon/tq-icon/packages/svg"
-  return glob("*.svg", { cwd: dir, absolute: true })
+  const dir = process.cwd()
+  console.log(dir.replace("/vue", "/svg"),111);
+  
+  return glob("*.svg", { cwd: dir.replace("/vue", "/svg"), absolute: true })
 }
 const formatCode = (code: string, parser: BuiltInParserName = "typescript") =>
   format(code, {
@@ -54,8 +36,6 @@ const generateEntry = async (files: string[]) => {
       })
       .join("\n")
   )
-  console.log(code)
-  console.log(11, pathComponents)
   await writeFile(path.resolve(pathComponents, "index.ts"), code, "utf-8")
 }
 
@@ -70,7 +50,7 @@ const getName = (file: string) => {
 
 const transformToVueComponent = async (file: string) => {
   let content = await readFile(file, "utf-8")
-  console.log(content, 44444)
+  // console.log(content, 44444)
   const { filename, componentName } = getName(file)
   content = content.replace("<svg", '<svg ref="svg" :style="styleSvg"')
   const vue = formatCode(
@@ -127,6 +107,7 @@ const transformToVueComponent = async (file: string) => {
 }
 const files = await getSvgFiles()
 // console.log(files)
+// 需要进行对svg图片进行压缩
 
 consola.info(chalk.blue("generating vue files"))
 await Promise.all(files.map((file) => transformToVueComponent(file)))
