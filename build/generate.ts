@@ -69,20 +69,55 @@ const getName = (file: string) => {
 }
 
 const transformToVueComponent = async (file: string) => {
-  const content = await readFile(file, "utf-8")
+  let content = await readFile(file, "utf-8")
+  console.log(content, 44444)
   const { filename, componentName } = getName(file)
+  content = content.replace("<svg", '<svg ref="svg" :style="styleSvg"')
   const vue = formatCode(
     `
     <template>
     ${content}
   </template>
   <script lang="ts" setup>
+  import { ref, onMounted, watch } from 'vue'
   const props = defineProps({
-    width: {
-      // 侧边栏菜单是否收起
-      type: Number,
-      default: 50,
+    size: {
+      type: String,
+      default: '',
     },
+    width: {
+      type: String,
+      default: '',
+    },
+    color: {
+      type: String,
+      defualt: '',
+    },
+    spin: {
+      type: Boolean,
+      default: false,
+    },
+    fill: {
+      type: String,
+      default: '',
+    },
+  })
+  const svg = ref(null)
+  const styleSvg = ref<any>({ fill: 'red', width: '100px' })
+  
+  watch(props, (newVal) => {
+    const { size, color, spin, width, fill } = newVal
+    const styleCss = {
+      animation: spin ? 'loadingCircle 1s infinite linear' : undefined,
+      fontSize: size ? size : undefined,
+      width: width ? width : undefined,
+      color: color,
+      fill,
+    }
+    styleSvg.value = Object.assign({ ...styleCss })
+  }, { deep: true, immediate: true })
+  onMounted(() => {
+  
   })
   </script>
   `,
@@ -96,5 +131,5 @@ const files = await getSvgFiles()
 consola.info(chalk.blue("generating vue files"))
 await Promise.all(files.map((file) => transformToVueComponent(file)))
 
-consola.info(chalk.blue('generating entry file'))
+consola.info(chalk.blue("generating entry file"))
 await generateEntry(files)
