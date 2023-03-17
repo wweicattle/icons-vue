@@ -1,4 +1,4 @@
-/*! Icons Vue v1.1.7 */
+/*! Icons Vue v1.1.8 */
 
 "use strict";
 var ElementPlusIconsVue = (() => {
