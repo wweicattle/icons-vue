@@ -19,6 +19,13 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: !0 
 // src/index.ts
 var src_exports = {};
 __export(src_exports, {
+  icons: () => components_exports
+});
+module.exports = __toCommonJS(src_exports);
+
+// src/components/index.ts
+var components_exports = {};
+__export(components_exports, {
   AddLocation: () => add_location_default,
   Aim: () => aim_default,
   AlarmClock: () => alarm_clock_default,
@@ -315,7 +322,6 @@ __export(src_exports, {
   ZoomIn: () => zoom_in_default,
   ZoomOut: () => zoom_out_default
 });
-module.exports = __toCommonJS(src_exports);
 
 // unplugin-vue:/Users/chenbin/Desktop/代码/TqIcon/tq-icon/packages/vue/src/components/add-location.vue?vue&type=script&setup=true&lang.ts
 var import_vue = require("vue"), import_vue2 = require("vue"), import_vue3 = require("vue"), _hoisted_1 = /* @__PURE__ */ (0, import_vue2.createElementVNode)("path", {

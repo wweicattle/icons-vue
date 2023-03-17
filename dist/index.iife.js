@@ -34,6 +34,12 @@ var ElementPlusIconsVue = (() => {
   // src/index.ts
   var src_exports = {};
   __export(src_exports, {
+    icons: () => components_exports
+  });
+
+  // src/components/index.ts
+  var components_exports = {};
+  __export(components_exports, {
     AddLocation: () => add_location_default,
     Aim: () => aim_default,
     AlarmClock: () => alarm_clock_default,
