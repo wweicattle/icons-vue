@@ -56,17 +56,17 @@ const buildBundle = () => {
     await Promise.all([
       build({
         ...getBuildOptions("esm"),
-        entryNames: "es/" + `/[name]${minify ? ".min" : ""}`,
+        entryNames: "es/" + `[name]/[name]${minify ? ".min" : ""}`,
         minify,
       }),
       build({
         ...getBuildOptions("iife"),
-        entryNames: "iife/" + `[name].iife${minify ? ".min" : ""}`,
+        entryNames: "iife/" + `[name]/[name].iife${minify ? ".min" : ""}`,
         minify,
       }),
       build({
         ...getBuildOptions("cjs"),
-        entryNames: "cjs/" + `[name]${minify ? ".min" : ""}`,
+        entryNames: "cjs/" + `[name]/[name]${minify ? ".min" : ""}`,
         outExtension: { ".js": ".cjs" },
         minify,
       }),
@@ -76,7 +76,7 @@ const buildBundle = () => {
 }
 
 consola.info(chalk.blue("cleaning dist..."))
-await emptyDir(pathOutput)
+// await emptyDir(pathOutput)
 consola.info(chalk.blue("building..."))
 // 需要遍历所有的组件打包成各自的文件夹
 await buildBundle()

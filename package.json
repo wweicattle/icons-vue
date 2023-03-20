@@ -12,9 +12,10 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "build": "yarn run generate && yarn builds",
+    "build": "yarn run generate && yarn builds && yarn buildGlobal",
     "generate": "tsx build/generate.ts && tsx build/build.ts",
     "builds": "tsx build/build.ts",
+    "buildGlobal": "tsx build/buildGlobal.ts",
     "types": "npm version patch  && vue-tsc --declaration --emitDeclarationOnly && npm publish"
   },
   "exports": {
