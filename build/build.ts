@@ -1,36 +1,31 @@
-import path from 'node:path'
-import consola from 'consola'
-import chalk from 'chalk'
-import { build } from 'esbuild'
-import GlobalsPlugin from 'esbuild-plugin-globals'
-import vue from 'unplugin-vue/esbuild'
-import { emptyDir } from 'fs-extra'
-import { version } from '../package.json'
-import { pathOutput, pathSrc } from './paths'
-import type { BuildOptions, Format } from 'esbuild'
-const envPlugin = {
-  name: 'env',
-  setup(build: any) {
-    // namespace to reserve them for this plugin.
-    build.onResolve({ filter: /^env$/ }, (args) => ({
-      path: args.path,
-      namespace: 'env-ns',
-    }))
-  },
+import path from "node:path"
+import consola from "consola"
+import chalk from "chalk"
+import { build } from "esbuild"
+import GlobalsPlugin from "esbuild-plugin-globals"
+import vue from "unplugin-vue/esbuild"
+import { emptyDir } from "fs-extra"
+import { version } from "../package.json"
+import { pathOutput, pathSrc } from "./paths"
+import glob from "fast-glob"
+import type { BuildOptions, Format } from "esbuild"
+
+const getSvgFiles = async () => {
+  const dir = process.cwd()
+  let dirs = path.resolve(pathSrc + "/components")
+  return glob("*.vue", { cwd: dirs, absolute: true })
 }
-console.log(323233);
+let getVueDatas = await getSvgFiles()
+console.log(getVueDatas, 1212)
 
 const buildBundle = () => {
   const getBuildOptions = (format: Format) => {
+    console.log(1)
     const options: BuildOptions = {
-      entryPoints: [
-        path.resolve(pathSrc, 'index.ts'),
-        path.resolve(pathSrc, 'global.ts'),
-      ],
-      target: 'es2018',
-      platform: 'neutral',
+      entryPoints: getVueDatas,
+      target: "es2018",
+      platform: "neutral",
       plugins: [
-        envPlugin,
         vue({
           isProduction: true,
           sourceMap: false,
@@ -44,15 +39,15 @@ const buildBundle = () => {
       },
       outdir: pathOutput,
     }
-    if (format === 'iife') {
+    if (format === "iife") {
       options.plugins!.push(
         GlobalsPlugin({
-          vue: 'Vue',
+          vue: "Vue",
         })
       )
-      options.globalName = 'ElementPlusIconsVue'
+      options.globalName = "ElementPlusIconsVue"
     } else {
-      options.external = ['vue']
+      options.external = ["vue"]
     }
 
     return options
@@ -60,28 +55,28 @@ const buildBundle = () => {
   const doBuild = async (minify: boolean) => {
     await Promise.all([
       build({
-        ...getBuildOptions('esm'),
-        entryNames: `[name]${minify ? '.min' : ''}`,
+        ...getBuildOptions("esm"),
+        entryNames: "es/" + `/[name]${minify ? ".min" : ""}`,
         minify,
       }),
       build({
-        ...getBuildOptions('iife'),
-        entryNames: `[name].iife${minify ? '.min' : ''}`,
+        ...getBuildOptions("iife"),
+        entryNames: "iife/" + `[name].iife${minify ? ".min" : ""}`,
         minify,
       }),
       build({
-        ...getBuildOptions('cjs'),
-        entryNames: `[name]${minify ? '.min' : ''}`,
-        outExtension: { '.js': '.cjs' },
+        ...getBuildOptions("cjs"),
+        entryNames: "cjs/" + `[name]${minify ? ".min" : ""}`,
+        outExtension: { ".js": ".cjs" },
         minify,
       }),
     ])
   }
-
   return Promise.all([doBuild(true), doBuild(false)])
 }
 
-consola.info(chalk.blue('cleaning dist...'))
+consola.info(chalk.blue("cleaning dist..."))
 await emptyDir(pathOutput)
-consola.info(chalk.blue('building...'))
+consola.info(chalk.blue("building..."))
+// 需要遍历所有的组件打包成各自的文件夹
 await buildBundle()
