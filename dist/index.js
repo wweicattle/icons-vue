@@ -1,4 +1,4 @@
-/*! Icons Vue v1.1.13 */
+/*! Icons Vue v1.1.14 */
 
 var __defProp = Object.defineProperty;
 var __export = (target, all) => {

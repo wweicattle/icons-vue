@@ -82,6 +82,6 @@ const buildBundle = () => {
 }
 
 consola.info(chalk.blue('cleaning dist...'))
-// await emptyDir(pathOutput)
+await emptyDir(pathOutput)
 consola.info(chalk.blue('building...'))
 await buildBundle()
