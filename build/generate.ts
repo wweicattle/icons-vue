@@ -16,8 +16,6 @@ await emptyDir(pathComponents)
 
 const getSvgFiles = async () => {
   const dir = process.cwd()
-  console.log(dir.replace("/vue", "/svg"),111);
-  
   return glob("*.svg", { cwd: dir.replace("/vue", "/svg"), absolute: true })
 }
 const formatCode = (code: string, parser: BuiltInParserName = "typescript") =>

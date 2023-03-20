@@ -6,7 +6,7 @@ import GlobalsPlugin from "esbuild-plugin-globals"
 import vue from "unplugin-vue/esbuild"
 import { emptyDir } from "fs-extra"
 import { version } from "../package.json"
-import { pathOutput, pathSrc } from "./paths"
+import { pathOutputModule, pathSrc } from "./paths"
 import glob from "fast-glob"
 import type { BuildOptions, Format } from "esbuild"
 
@@ -16,11 +16,8 @@ const getSvgFiles = async () => {
   return glob("*.vue", { cwd: dirs, absolute: true })
 }
 let getVueDatas = await getSvgFiles()
-console.log(getVueDatas, 1212)
-
 const buildBundle = () => {
   const getBuildOptions = (format: Format) => {
-    console.log(1)
     const options: BuildOptions = {
       entryPoints: getVueDatas,
       target: "es2018",
@@ -37,7 +34,7 @@ const buildBundle = () => {
       banner: {
         js: `/*! Icons Vue v${version} */\n`,
       },
-      outdir: pathOutput,
+      outdir: pathOutputModule,
     }
     if (format === "iife") {
       options.plugins!.push(
