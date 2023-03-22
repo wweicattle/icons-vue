@@ -16,6 +16,6 @@
     "skipLibCheck": true,
     "types": []
   },
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*", "./es/**/*", "./lib/**/*"],
   "references": [{ "path": "./tsconfig.build.json" }]
 }

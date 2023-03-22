@@ -30,13 +30,22 @@ const generateEntry = async (files: string[]) => {
     files
       .map((file) => {
         const { filename, componentName } = getName(file)
-        return `export { default as ${componentName} } from '../es/${filename}/index.js'`
+        return `export { default as ${componentName} } from '../es/${filename}'`
       })
       .join("\n")
   )
-  console.log(pathComponents);
-  
-  await writeFile(path.resolve(pathSrc, "component.js"), code, "utf-8")
+  await writeFile(path.resolve(pathSrc, "../lib/component.js"), code, "utf-8")
+}
+const generateEntrys= async (files: string[]) => {
+  const code = formatCode(
+    files
+      .map((file) => {
+        const { filename, componentName } = getName(file)
+        return `export { default as ${componentName} } from './${filename}'`
+      })
+      .join("\n")
+  )
+  await writeFile(path.resolve(pathSrc, "../es/component.js"), code, "utf-8")
 }
 
 const getName = (file: string) => {
@@ -114,3 +123,5 @@ await Promise.all(files.map((file) => transformToVueComponent(file)))
 
 consola.info(chalk.blue("generating entry file"))
 await generateEntry(files)
+await generateEntrys(files)
+

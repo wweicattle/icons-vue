@@ -23,7 +23,7 @@ const buildBundle = () => {
   const getBuildOptions = (format: Format) => {
     const options: BuildOptions = {
       entryPoints: [
-        path.resolve(pathSrc, './index.js'),
+        path.resolve(pathSrc, './index.ts'),
       ],
       target: 'es2018',
       platform: 'neutral',
@@ -34,7 +34,7 @@ const buildBundle = () => {
           sourceMap: false,
         }),
       ],
-      bundle: true,
+      bundle: false,
       format,
       minifySyntax: true,
       banner: {
