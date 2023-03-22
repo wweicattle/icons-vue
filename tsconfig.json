@@ -14,7 +14,8 @@
     "lib": ["ES2018", "DOM"],
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
-    "types": []
+    "types": [],
+    "allowJs": true
   },
   "include": ["./src/**/*", "./es/**/*", "./lib/**/*"],
   "references": [{ "path": "./tsconfig.build.json" }]
