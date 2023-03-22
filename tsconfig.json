@@ -17,6 +17,6 @@
     "types": [],
     "allowJs": true
   },
-  "include": ["./src/**/*", "./es/**/*", "./lib/**/*"],
+  "include": ["./src/**/*"],
   "references": [{ "path": "./tsconfig.build.json" }]
 }

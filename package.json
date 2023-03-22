@@ -15,6 +15,8 @@
   "scripts": {
     "build": "yarn run generate && yarn builds && yarn buildGlobal",
     "generate": "tsx build/generate.ts",
+    "gen": "tsx build/generateTs.ts",
+    "begin": "vue-tsc --declaration --emitDeclarationOnly && tsx build/beginTs.ts",
     "builds": "tsx build/build.ts",
     "buildGlobal": "tsx build/buildGlobal.ts",
     "type": "vue-tsc --declaration --emitDeclarationOnly",
