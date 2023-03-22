@@ -2,7 +2,7 @@ import path from "node:path"
 import glob from "fast-glob"
 import consola from "consola"
 import chalk from "chalk"
-import { pathComponents } from "./paths"
+import { pathComponents ,pathSrc} from "./paths"
 import { emptyDir, ensureDir } from "fs-extra"
 import { readFile, writeFile } from "node:fs/promises"
 import { format } from "prettier"
@@ -30,11 +30,13 @@ const generateEntry = async (files: string[]) => {
     files
       .map((file) => {
         const { filename, componentName } = getName(file)
-        return `export { default as ${componentName} } from './${filename}.vue'`
+        return `export { default as ${componentName} } from '../es/${filename}/index.js'`
       })
       .join("\n")
   )
-  await writeFile(path.resolve(pathComponents, "index.ts"), code, "utf-8")
+  console.log(pathComponents);
+  
+  await writeFile(path.resolve(pathSrc, "component.js"), code, "utf-8")
 }
 
 const getName = (file: string) => {

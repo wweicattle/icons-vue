@@ -13,9 +13,10 @@
   },
   "scripts": {
     "build": "yarn run generate && yarn builds && yarn buildGlobal",
-    "generate": "tsx build/generate.ts && tsx build/build.ts",
+    "generate": "tsx build/generate.ts",
     "builds": "tsx build/build.ts",
     "buildGlobal": "tsx build/buildGlobal.ts",
+    "type":"vue-tsc --declaration --emitDeclarationOnly",
     "types": "npm version patch  && vue-tsc --declaration --emitDeclarationOnly && npm publish"
   },
   "exports": {

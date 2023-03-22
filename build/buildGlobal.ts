@@ -18,14 +18,12 @@ const envPlugin = {
     }))
   },
 }
-console.log(323233);
 
 const buildBundle = () => {
   const getBuildOptions = (format: Format) => {
     const options: BuildOptions = {
       entryPoints: [
-        path.resolve(pathSrc, 'index.ts'),
-        path.resolve(pathSrc, 'global.ts'),
+        path.resolve(pathSrc, './index.js'),
       ],
       target: 'es2018',
       platform: 'neutral',
@@ -42,7 +40,7 @@ const buildBundle = () => {
       banner: {
         js: `/*! Icons Vue v${version} */\n`,
       },
-      outdir: pathOutput,
+      outdir: process.cwd(),
     }
     if (format === 'iife') {
       options.plugins!.push(
@@ -52,7 +50,7 @@ const buildBundle = () => {
       )
       options.globalName = 'ElementPlusIconsVue'
     } else {
-      options.external = ['vue']
+      // options.external = ['vue']
     }
 
     return options
@@ -61,17 +59,17 @@ const buildBundle = () => {
     await Promise.all([
       build({
         ...getBuildOptions('esm'),
-        entryNames: `[name]${minify ? '.min' : ''}`,
+        entryNames: 'es/'+`[name]${minify ? '.min' : ''}`,
         minify,
       }),
-      build({
-        ...getBuildOptions('iife'),
-        entryNames: `[name].iife${minify ? '.min' : ''}`,
-        minify,
-      }),
+      // build({
+      //   ...getBuildOptions('iife'),
+      //   entryNames: 'iife'+`[name].iife${minify ? '.min' : ''}`,
+      //   minify,
+      // }),
       build({
         ...getBuildOptions('cjs'),
-        entryNames: `[name]${minify ? '.min' : ''}`,
+        entryNames: 'lib/'+`[name]${minify ? '.min' : ''}`,
         outExtension: { '.js': '.cjs' },
         minify,
       }),

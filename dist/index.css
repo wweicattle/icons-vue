@@ -1,6 +1,6 @@
-/* src/index.css */
+
 @keyframes loadingCircle {
   to {
-    transform: rotate(360deg);
+    transform: rotate(360deg)
   }
 }
