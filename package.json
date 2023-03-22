@@ -1,6 +1,6 @@
 {
   "name": "@wwcattlewei/icons-vue",
-  "version": "1.1.15",
+  "version": "1.1.16",
   "description": "this is Vue Icons For Svg",
   "main": "./dist/index.js",
   "author": "wwei",
@@ -16,7 +16,7 @@
     "generate": "tsx build/generate.ts",
     "builds": "tsx build/build.ts",
     "buildGlobal": "tsx build/buildGlobal.ts",
-    "type":"vue-tsc --declaration --emitDeclarationOnly",
+    "type": "vue-tsc --declaration --emitDeclarationOnly",
     "types": "npm version patch  && vue-tsc --declaration --emitDeclarationOnly && npm publish"
   },
   "exports": {
