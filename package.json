@@ -20,17 +20,6 @@
     "type": "vue-tsc --declaration --emitDeclarationOnly",
     "types": "npm version patch  && vue-tsc --declaration --emitDeclarationOnly && npm publish"
   },
-  "exports": {
-    ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.js"
-    },
-    "./global": {
-      "require": "./dist/global.cjs",
-      "import": "./dist/global.js"
-    },
-    "./*": "./*"
-  },
   "dependencies": {
     "@pnpm/logger": "^5.0.0",
     "@wwcattlewei/icons-vue": "^1.1.4",
