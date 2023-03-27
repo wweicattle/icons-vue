@@ -37,6 +37,7 @@
     "@wwcattlewei/icons-vue": "^1.1.4",
     "consola": "^2.15.3",
     "fs-extra": "^11.1.0",
+    "npm": "^9.6.2",
     "svgo": "^3.0.2"
   },
   "devDependencies": {

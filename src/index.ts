@@ -1,5 +1,5 @@
 
-import * as icons from "./components"
+import * as icons from "./component"
 import type { App } from 'vue'
 
 export interface InstallOptions {
@@ -13,4 +13,4 @@ export default (app: App, { prefix = 'ElIcon' }: InstallOptions = {}) => {
 }
 
 export { icons }
-export * from './components'
+export * from './component'
