@@ -1,4 +1,4 @@
-/*! Icons Vue v1.1.24 */
+/*! Icons Vue v1.1.25 */
 
 
 // unplugin-vue:/Users/chenbin/Desktop/代码/TqIcon/tq-icon/packages/vue/src/components/d-arrow-left.vue?vue&type=script&setup=true&lang.ts
