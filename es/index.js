@@ -9,6 +9,4 @@ var src_default = {
   }
 };
 export * from "./component";
-export {
-  src_default as default
-};
+export default src_default

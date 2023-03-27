@@ -6,13 +6,14 @@ export interface InstallOptions {
   /** @default `Tq` */
   prefix?: string
 }
-export default {
-  install:(app: App, { prefix = '' }: InstallOptions = {}) => {
-    for (const [key, component] of Object.entries(icons)) {
-      app.component(prefix + key, component)
+const instal={
+    install:(app: App, { prefix = '' }: InstallOptions = {}) => {
+      for (const [key, component] of Object.entries(icons)) {
+        app.component(prefix + key, component)
+      }
+      return app
     }
-    return app
-  }
 }
+export default instal
 
 export * from './component'

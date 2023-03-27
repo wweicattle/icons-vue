@@ -1,4 +1,4 @@
-/*! Icons Vue v1.1.30 */
+/*! Icons Vue v1.1.31 */
 
 
 // unplugin-vue:/Users/chenbin/Desktop/代码/TqIcon/tq-icon/packages/vue/src/components/ice-cream-square.vue?vue&type=script&setup=true&lang.ts
