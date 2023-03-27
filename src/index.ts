@@ -3,14 +3,16 @@ import * as icons from "./component"
 import type { App } from 'vue'
 
 export interface InstallOptions {
-  /** @default `ElIcon` */
+  /** @default `Tq` */
   prefix?: string
 }
-export default (app: App, { prefix = 'ElIcon' }: InstallOptions = {}) => {
-  for (const [key, component] of Object.entries(icons)) {
-    app.component(prefix + key, component)
+export default {
+  install:(app: App, { prefix = '' }: InstallOptions = {}) => {
+    for (const [key, component] of Object.entries(icons)) {
+      app.component(prefix + key, component)
+    }
+    return app
   }
 }
 
-export { icons }
 export * from './component'
