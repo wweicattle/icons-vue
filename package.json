@@ -26,6 +26,10 @@
     "release": "yarn run generate && yarn builds && yarn buildGlobal && yarn gens && tsx build/umd.ts && yarn type"
   },
   "exports": {
+    ".": {
+      "require": "./lib/index.js",
+      "import": "./es/index.js"
+    },
     "./*": "./*"
   },
   "dependencies": {
