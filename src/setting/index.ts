@@ -12,7 +12,9 @@ const instal = {
     }
     return app
   },
+  icons
 } as {
-  install: () => App
+  install: () => App,
+  icons:any
 }
 export default instal

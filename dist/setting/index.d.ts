@@ -6,5 +6,6 @@ export interface InstallOptions {
 }
 declare const instal: {
     install: () => App;
+    icons: any;
 };
 export default instal;

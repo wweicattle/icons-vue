@@ -1,4 +1,4 @@
-/*! Icons Vue v1.1.33 */
+/*! Icons Vue v1.1.34 */
 
 "use strict";
 (() => {
@@ -27919,6 +27919,7 @@ Component that was made reactive: `, type)), createBaseVNode(type, props, childr
       for (let [key, component] of Object.entries(components_exports))
         app.component(prefix + key, component);
       return app;
-    }
+    },
+    icons: components_exports
   }, setting_default2 = instal;
 })();
