@@ -1,4 +1,4 @@
-/*! Icons Vue v1.1.28 */
+/*! Icons Vue v1.1.29 */
 
 
 // unplugin-vue:/Users/chenbin/Desktop/代码/TqIcon/tq-icon/packages/vue/src/components/bottom-right.vue?vue&type=script&setup=true&lang.ts
