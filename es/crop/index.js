@@ -1,4 +1,4 @@
-/*! Icons Vue v1.1.31 */
+/*! Icons Vue v1.1.32 */
 
 
 // unplugin-vue:/Users/chenbin/Desktop/代码/TqIcon/tq-icon/packages/vue/src/components/crop.vue?vue&type=script&setup=true&lang.ts
