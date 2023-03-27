@@ -1,4 +1,4 @@
-/*! Icons Vue v1.1.35 */
+/*! Icons Vue v1.1.36 */
 
 "use strict";
 (() => {
@@ -23,9 +23,9 @@
     mod
   ));
 
-  // node_modules/@vue/shared/dist/shared.cjs.prod.js
+  // ../../node_modules/@vue/shared/dist/shared.cjs.prod.js
   var require_shared_cjs_prod = __commonJS({
-    "node_modules/@vue/shared/dist/shared.cjs.prod.js"(exports) {
+    "../../node_modules/@vue/shared/dist/shared.cjs.prod.js"(exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: !0 });
       function makeMap(str, expectsLowerCase) {
@@ -321,9 +321,9 @@
     }
   });
 
-  // node_modules/@vue/shared/dist/shared.cjs.js
+  // ../../node_modules/@vue/shared/dist/shared.cjs.js
   var require_shared_cjs = __commonJS({
-    "node_modules/@vue/shared/dist/shared.cjs.js"(exports) {
+    "../../node_modules/@vue/shared/dist/shared.cjs.js"(exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: !0 });
       function makeMap(str, expectsLowerCase) {
@@ -619,17 +619,17 @@
     }
   });
 
-  // node_modules/@vue/shared/index.js
+  // ../../node_modules/@vue/shared/index.js
   var require_shared = __commonJS({
-    "node_modules/@vue/shared/index.js"(exports, module) {
+    "../../node_modules/@vue/shared/index.js"(exports, module) {
       "use strict";
       process.env.NODE_ENV === "production" ? module.exports = require_shared_cjs_prod() : module.exports = require_shared_cjs();
     }
   });
 
-  // node_modules/@vue/reactivity/dist/reactivity.cjs.prod.js
+  // ../../node_modules/@vue/reactivity/dist/reactivity.cjs.prod.js
   var require_reactivity_cjs_prod = __commonJS({
-    "node_modules/@vue/reactivity/dist/reactivity.cjs.prod.js"(exports) {
+    "../../node_modules/@vue/reactivity/dist/reactivity.cjs.prod.js"(exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: !0 });
       var shared = require_shared(), activeEffectScope, EffectScope = class {
@@ -1296,9 +1296,9 @@
     }
   });
 
-  // node_modules/@vue/reactivity/dist/reactivity.cjs.js
+  // ../../node_modules/@vue/reactivity/dist/reactivity.cjs.js
   var require_reactivity_cjs = __commonJS({
-    "node_modules/@vue/reactivity/dist/reactivity.cjs.js"(exports) {
+    "../../node_modules/@vue/reactivity/dist/reactivity.cjs.js"(exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: !0 });
       var shared = require_shared();
@@ -2000,17 +2000,17 @@
     }
   });
 
-  // node_modules/@vue/reactivity/index.js
+  // ../../node_modules/@vue/reactivity/index.js
   var require_reactivity = __commonJS({
-    "node_modules/@vue/reactivity/index.js"(exports, module) {
+    "../../node_modules/@vue/reactivity/index.js"(exports, module) {
       "use strict";
       process.env.NODE_ENV === "production" ? module.exports = require_reactivity_cjs_prod() : module.exports = require_reactivity_cjs();
     }
   });
 
-  // node_modules/@vue/runtime-core/dist/runtime-core.cjs.prod.js
+  // ../../node_modules/@vue/runtime-core/dist/runtime-core.cjs.prod.js
   var require_runtime_core_cjs_prod = __commonJS({
-    "node_modules/@vue/runtime-core/dist/runtime-core.cjs.prod.js"(exports) {
+    "../../node_modules/@vue/runtime-core/dist/runtime-core.cjs.prod.js"(exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: !0 });
       var reactivity = require_reactivity(), shared = require_shared();
@@ -4710,9 +4710,9 @@
     }
   });
 
-  // node_modules/@vue/runtime-core/dist/runtime-core.cjs.js
+  // ../../node_modules/@vue/runtime-core/dist/runtime-core.cjs.js
   var require_runtime_core_cjs = __commonJS({
-    "node_modules/@vue/runtime-core/dist/runtime-core.cjs.js"(exports) {
+    "../../node_modules/@vue/runtime-core/dist/runtime-core.cjs.js"(exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: !0 });
       var reactivity = require_reactivity(), shared = require_shared(), stack = [];
@@ -8106,17 +8106,17 @@ Component that was made reactive: `, type)), createBaseVNode(type, props, childr
     }
   });
 
-  // node_modules/@vue/runtime-core/index.js
+  // ../../node_modules/@vue/runtime-core/index.js
   var require_runtime_core = __commonJS({
-    "node_modules/@vue/runtime-core/index.js"(exports, module) {
+    "../../node_modules/@vue/runtime-core/index.js"(exports, module) {
       "use strict";
       process.env.NODE_ENV === "production" ? module.exports = require_runtime_core_cjs_prod() : module.exports = require_runtime_core_cjs();
     }
   });
 
-  // node_modules/@vue/runtime-dom/dist/runtime-dom.cjs.prod.js
+  // ../../node_modules/@vue/runtime-dom/dist/runtime-dom.cjs.prod.js
   var require_runtime_dom_cjs_prod = __commonJS({
-    "node_modules/@vue/runtime-dom/dist/runtime-dom.cjs.prod.js"(exports) {
+    "../../node_modules/@vue/runtime-dom/dist/runtime-dom.cjs.prod.js"(exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: !0 });
       var runtimeCore = require_runtime_core(), shared = require_shared(), svgNS = "http://www.w3.org/2000/svg", doc = typeof document != "undefined" ? document : null, templateContainer = doc && /* @__PURE__ */ doc.createElement("template"), nodeOps = {
@@ -8895,9 +8895,9 @@ Component that was made reactive: `, type)), createBaseVNode(type, props, childr
     }
   });
 
-  // node_modules/@vue/runtime-dom/dist/runtime-dom.cjs.js
+  // ../../node_modules/@vue/runtime-dom/dist/runtime-dom.cjs.js
   var require_runtime_dom_cjs = __commonJS({
-    "node_modules/@vue/runtime-dom/dist/runtime-dom.cjs.js"(exports) {
+    "../../node_modules/@vue/runtime-dom/dist/runtime-dom.cjs.js"(exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: !0 });
       var runtimeCore = require_runtime_core(), shared = require_shared(), svgNS = "http://www.w3.org/2000/svg", doc = typeof document != "undefined" ? document : null, templateContainer = doc && /* @__PURE__ */ doc.createElement("template"), nodeOps = {
@@ -9718,9 +9718,9 @@ Component that was made reactive: `, type)), createBaseVNode(type, props, childr
     }
   });
 
-  // node_modules/@vue/runtime-dom/index.js
+  // ../../node_modules/@vue/runtime-dom/index.js
   var require_runtime_dom = __commonJS({
-    "node_modules/@vue/runtime-dom/index.js"(exports, module) {
+    "../../node_modules/@vue/runtime-dom/index.js"(exports, module) {
       "use strict";
       process.env.NODE_ENV === "production" ? module.exports = require_runtime_dom_cjs_prod() : module.exports = require_runtime_dom_cjs();
     }
@@ -10026,7 +10026,7 @@ Component that was made reactive: `, type)), createBaseVNode(type, props, childr
     ZoomOut: () => zoom_out_default
   });
 
-  // node_modules/vue/dist/vue.runtime.esm-bundler.js
+  // ../../node_modules/vue/dist/vue.runtime.esm-bundler.js
   var vue_runtime_esm_bundler_exports = {};
   __export(vue_runtime_esm_bundler_exports, {
     compile: () => compile

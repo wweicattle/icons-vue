@@ -1,4 +1,4 @@
-/*! Icons Vue v1.1.35 */
+/*! Icons Vue v1.1.36 */
 
 import * as icons from "./component";
 const instal = {
@@ -6,7 +6,8 @@ const instal = {
     for (const [key, component] of Object.entries(icons))
       app.component(prefix + key, component);
     return app;
-  }
+  },
+  icons
 };
 var src_default = instal;
 export * from "./component";

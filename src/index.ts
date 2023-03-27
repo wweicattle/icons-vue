@@ -12,6 +12,7 @@ const instal = {
     }
     return app
   },
+  icons
 } as {
   install: () => App
   icons: any
