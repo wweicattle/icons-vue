@@ -1,4 +1,4 @@
-/*! Icons Vue v1.1.34 */
+/*! Icons Vue v1.1.35 */
 
 
 // unplugin-vue:/Users/chenbin/Desktop/代码/TqIcon/tq-icon/packages/vue/src/components/headset.vue?vue&type=script&setup=true&lang.ts

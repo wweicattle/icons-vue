@@ -14,6 +14,7 @@ const instal = {
   },
 } as {
   install: () => App
+  icons: any
 }
 export default instal
 
