@@ -1,4 +1,4 @@
-/*! Icons Vue v1.1.23 */
+/*! Icons Vue v1.1.24 */
 
 import * as icons from "./components";
 var src_default = (app, { prefix = "ElIcon" } = {}) => {
