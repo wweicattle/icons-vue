@@ -30,7 +30,7 @@ const generateEsEntry = async (files: string[]) => {
     files
       .map((file) => {
         const { filename, componentName } = getName(file)
-        return `export { default as ${componentName} } from '/${filename}'`
+        return `export { default as ${componentName} } from '/${filename}/index.js'`
       })
       .join("\n")
   )
