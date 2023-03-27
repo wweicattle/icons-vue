@@ -2,7 +2,7 @@ import path from "node:path"
 import glob from "fast-glob"
 import consola from "consola"
 import chalk from "chalk"
-import { pathComponents ,pathSrc} from "./paths"
+import { pathComponents, pathRoot, pathSrc, pathEs, pathLib } from "./paths"
 import { emptyDir, ensureDir } from "fs-extra"
 import { readFile, writeFile } from "node:fs/promises"
 import { format } from "prettier"
@@ -25,28 +25,45 @@ const formatCode = (code: string, parser: BuiltInParserName = "typescript") =>
     singleQuote: true,
   })
 
+const generateEsEntry = async (files: string[]) => {
+  const code = formatCode(
+    files
+      .map((file) => {
+        const { filename, componentName } = getName(file)
+        return `export { default as ${componentName} } from '/${filename}'`
+      })
+      .join("\n")
+  )
+  console.log(pathRoot)
+
+  await writeFile(path.resolve(pathSrc, "setting/component.ts"), code, "utf-8")
+}
 const generateEntry = async (files: string[]) => {
   const code = formatCode(
     files
       .map((file) => {
         const { filename, componentName } = getName(file)
-        return `export { default as ${componentName} } from '../es/${filename}'`
+        return `export { default as ${componentName} } from './${filename}.vue'`
       })
       .join("\n")
   )
-  await writeFile(path.resolve(pathSrc, "../lib/component.js"), code, "utf-8")
+  console.log(code)
+  console.log(11, pathComponents)
+  await writeFile(path.resolve(pathComponents, "index.ts"), code, "utf-8")
 }
-const generateEntrys= async (files: string[]) => {
-  const code = formatCode(
-    files
-      .map((file) => {
-        const { filename, componentName } = getName(file)
-        return `export { default as ${componentName} } from './${filename}'`
-      })
-      .join("\n")
-  )
-  await writeFile(path.resolve(pathSrc, "../es/component.js"), code, "utf-8")
-}
+
+// const generateLibEntry = async (files: string[]) => {
+//   const code = formatCode(
+//     files
+//       .map((file) => {
+//         const { filename, componentName } = getName(file)
+//         return `export { default as ${componentName} } from './${filename}'`
+//       })
+//       .join("\n")
+//   )
+//   await writeFile(path.resolve(pathRoot, "lib/component.js"), code, "utf-8")
+
+// }
 
 const getName = (file: string) => {
   const filename = path.basename(file).replace(".svg", "")
@@ -59,7 +76,6 @@ const getName = (file: string) => {
 
 const transformToVueComponent = async (file: string) => {
   let content = await readFile(file, "utf-8")
-  // console.log(content, 44444)
   const { filename, componentName } = getName(file)
   content = content.replace("<svg", '<svg ref="svg" :style="styleSvg"')
   const vue = formatCode(
@@ -115,13 +131,11 @@ const transformToVueComponent = async (file: string) => {
   writeFile(path.resolve(pathComponents, `${filename}.vue`), vue, "utf-8")
 }
 const files = await getSvgFiles()
-// console.log(files)
 // 需要进行对svg图片进行压缩
-
 consola.info(chalk.blue("generating vue files"))
 await Promise.all(files.map((file) => transformToVueComponent(file)))
 
 consola.info(chalk.blue("generating entry file"))
+// 生成入口文件
+await generateEsEntry(files)
 await generateEntry(files)
-await generateEntrys(files)
-

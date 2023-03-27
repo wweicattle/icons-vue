@@ -1,11 +1,11 @@
-/*! Icons Vue v1.1.18 */
+/*! Icons Vue v1.1.23 */
 
-import * as icons from "./component.js";
+import * as icons from "./components";
 var src_default = (app, { prefix = "ElIcon" } = {}) => {
   for (const [key, component] of Object.entries(icons))
     app.component(prefix + key, component);
 };
-export * from "./component.js";
+export * from "./components";
 export {
   src_default as default,
   icons

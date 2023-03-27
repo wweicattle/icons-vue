@@ -70,7 +70,7 @@ const buildBundle = () => {
       build({
         ...getBuildOptions('cjs'),
         entryNames: 'lib/'+`[name]${minify ? '.min' : ''}`,
-        outExtension: { '.js': '.cjs' },
+        outExtension: { '.js': '.js' },
         minify,
       }),
     ])
