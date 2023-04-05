@@ -53,7 +53,7 @@ const buildBundle = () => {
     await Promise.all([
       build({
         ...getBuildOptions("esm"),
-        entryNames: "es/" + `[name]/index${minify ? ".min" : ""}`,
+        entryNames: "es/" + `[name]/index`,
         minify,
       }),
       // build({
@@ -63,13 +63,13 @@ const buildBundle = () => {
       // }),
       build({
         ...getBuildOptions("cjs"),
-        entryNames: "lib/" + `[name]/index${minify ? ".min" : ""}`,
+        entryNames: "lib/" + `[name]/index`,
         outExtension: { ".js": ".cjs" },
         minify,
       }),
     ])
   }
-  return Promise.all([doBuild(true), doBuild(false)])
+  return Promise.all([doBuild(true)])
 }
 
 consola.info(chalk.blue("cleaning dist..."))
