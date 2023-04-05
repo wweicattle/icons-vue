@@ -60,17 +60,17 @@ const buildBundle = () => {
     await Promise.all([
       build({
         ...getBuildOptions('esm'),
-        entryNames: `[name]${minify ? '.min' : ''}`,
+        entryNames: `[name]`,
         minify,
       }),
       build({
         ...getBuildOptions('iife'),
-        entryNames: `[name].iife${minify ? '.min' : ''}`,
+        entryNames: `[name].iife`,
         minify,
       }),
       build({
         ...getBuildOptions('cjs'),
-        entryNames: `[name]${minify ? '.min' : ''}`,
+        entryNames: `[name]`,
         outExtension: { '.js': '.cjs' },
         minify,
       }),

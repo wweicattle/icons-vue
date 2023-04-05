@@ -1,4 +1,4 @@
-/*! Icons Vue v1.1.37 */
+/*! Icons Vue v1.1.38 */
 
 import * as icons from "./component";
 const instal = {
