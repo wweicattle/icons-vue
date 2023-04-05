@@ -37,7 +37,6 @@ const buildBundle = () => {
       bundle: false,
       format,
       minifySyntax: true,
-      minifyWhitespace: true,
       banner: {
         js: `/*! Icons Vue v${version} */\n`,
       },
@@ -47,7 +46,7 @@ const buildBundle = () => {
 
     return options
   }
-  const doBuild = async (minify: boolean) => {
+  const doBuild = async () => {
     await Promise.all([
       build({
         ...getBuildOptions('esm'),
@@ -66,7 +65,7 @@ const buildBundle = () => {
     ])
   }
 
-  return Promise.all([doBuild(true), doBuild(false)])
+  return Promise.all([doBuild()])
 }
 
 consola.info(chalk.blue('cleaning dist...'))

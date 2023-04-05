@@ -78,7 +78,7 @@ const buildBundle = () => {
     ])
   }
 
-  return Promise.all([doBuild(true), doBuild(false)])
+  return Promise.all([doBuild(false)])
 }
 
 consola.info(chalk.blue('cleaning dist...'))
