@@ -9,3 +9,4 @@ declare const instal: {
     icons: any;
 };
 export default instal;
+export * from "../components";
