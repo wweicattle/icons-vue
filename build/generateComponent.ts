@@ -38,7 +38,6 @@ const buildBundle = () => {
       format,
       minifySyntax: true,
       minifyWhitespace: true,
-      minifyIdentifiers: true,
       banner: {
         js: `/*! Icons Vue v${version} */\n`,
       },
