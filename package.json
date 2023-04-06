@@ -1,9 +1,9 @@
 {
   "name": "@wwcattlewei/icons-vue",
-  "version": "2.0.4",
+  "version": "2.0.3",
   "description": "this is Vue Icons For Svg",
   "main": "./lib/index.js",
-  "module": "./es/index.js",
+  "module": "./es/component.js",
   "author": "wwei",
   "license": "MIT",
   "type": "module",
@@ -28,7 +28,7 @@
   "exports": {
     ".": {
       "require": "./lib/index.js",
-      "import": "./es/components.js"
+      "import": "./es/index.js"
     },
     "./*": "./*"
   },
