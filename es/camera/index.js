@@ -1,3 +1,85 @@
-/*! Icons Vue v2.0.13 */
+/*! Icons Vue v2.0.14 */
 
-import{defineComponent as u}from"vue";import{createElementVNode as _,normalizeStyle as h,openBlock as y,createElementBlock as g}from"vue";import{ref as i,onMounted as z,watch as x}from"vue";var v=_("path",{fill:"currentColor",d:"M896 256H128v576h768V256zm-199.424-64-32.064-64h-304.96l-32 64h369.024zM96 192h160l46.336-92.608A64 64 0 0 1 359.552 64h304.96a64 64 0 0 1 57.216 35.328L768.192 192H928a32 32 0 0 1 32 32v640a32 32 0 0 1-32 32H96a32 32 0 0 1-32-32V224a32 32 0 0 1 32-32zm416 512a160 160 0 1 0 0-320 160 160 0 0 0 0 320zm0 64a224 224 0 1 1 0-448 224 224 0 0 1 0 448z"},null,-1),w=[v],s=u({__name:"camera",props:{size:{type:String,default:""},width:{type:String,default:""},color:{type:String,defualt:""},spin:{type:Boolean,default:!1},fill:{type:String,default:""}},setup(e){let r=e,t=i(null),o=i({fill:"red",width:"100px"});return x(r,n=>{let{size:l,color:c,spin:p,width:a,fill:d}=n,m={animation:p?"loadingCircle 1s infinite linear":void 0,fontSize:l||void 0,width:a||void 0,color:c,fill:d};o.value=Object.assign({...m})},{deep:!0,immediate:!0}),z(()=>{}),(n,l)=>(y(),g("svg",{ref_key:"svg",ref:t,style:h(o.value),viewBox:"0 0 1024 1024",xmlns:"http://www.w3.org/2000/svg"},w,4))}});var f=(e,r)=>{let t=e.__vccOpts||e;for(let[o,n]of r)t[o]=n;return t};var M=f(s,[["__file","camera.vue"]]);export{M as default};
+
+// unplugin-vue:/Users/chenbin/Desktop/代码/TqIcon/tq-icon/packages/vue/src/components/camera.vue?vue&type=script&setup=true&lang.ts
+import { defineComponent as _defineComponent } from "vue";
+import { createElementVNode as _createElementVNode, normalizeStyle as _normalizeStyle, openBlock as _openBlock, createElementBlock as _createElementBlock } from "vue";
+import { ref, onMounted, watch } from "vue";
+var _hoisted_1 = /* @__PURE__ */ _createElementVNode("path", {
+  fill: "currentColor",
+  d: "M896 256H128v576h768V256zm-199.424-64-32.064-64h-304.96l-32 64h369.024zM96 192h160l46.336-92.608A64 64 0 0 1 359.552 64h304.96a64 64 0 0 1 57.216 35.328L768.192 192H928a32 32 0 0 1 32 32v640a32 32 0 0 1-32 32H96a32 32 0 0 1-32-32V224a32 32 0 0 1 32-32zm416 512a160 160 0 1 0 0-320 160 160 0 0 0 0 320zm0 64a224 224 0 1 1 0-448 224 224 0 0 1 0 448z"
+}, null, -1);
+var _hoisted_2 = [
+  _hoisted_1
+];
+var camera_vue_vue_type_script_setup_true_lang_default = /* @__PURE__ */ _defineComponent({
+  __name: "camera",
+  props: {
+    size: {
+      type: String,
+      default: ""
+    },
+    width: {
+      type: String,
+      default: ""
+    },
+    color: {
+      type: String,
+      defualt: ""
+    },
+    spin: {
+      type: Boolean,
+      default: false
+    },
+    fill: {
+      type: String,
+      default: ""
+    }
+  },
+  setup(__props) {
+    const props = __props;
+    const svg = ref(null);
+    const styleSvg = ref({ fill: "red", width: "100px" });
+    watch(
+      props,
+      (newVal) => {
+        const { size, color, spin, width, fill } = newVal;
+        const styleCss = {
+          animation: spin ? "loadingCircle 1s infinite linear" : void 0,
+          fontSize: size ? size : void 0,
+          width: width ? width : void 0,
+          color,
+          fill
+        };
+        styleSvg.value = Object.assign({ ...styleCss });
+      },
+      { deep: true, immediate: true }
+    );
+    onMounted(() => {
+    });
+    return (_ctx, _cache) => {
+      return _openBlock(), _createElementBlock("svg", {
+        ref_key: "svg",
+        ref: svg,
+        style: _normalizeStyle(styleSvg.value),
+        viewBox: "0 0 1024 1024",
+        xmlns: "http://www.w3.org/2000/svg"
+      }, _hoisted_2, 4);
+    };
+  }
+});
+
+// unplugin-vue:/plugin-vue/export-helper
+var export_helper_default = (sfc, props) => {
+  const target = sfc.__vccOpts || sfc;
+  for (const [key, val] of props) {
+    target[key] = val;
+  }
+  return target;
+};
+
+// src/components/camera.vue
+var camera_default = /* @__PURE__ */ export_helper_default(camera_vue_vue_type_script_setup_true_lang_default, [["__file", "camera.vue"]]);
+export {
+  camera_default as default
+};

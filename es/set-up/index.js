@@ -1,3 +1,100 @@
-/*! Icons Vue v2.0.13 */
+/*! Icons Vue v2.0.14 */
 
-import{defineComponent as _}from"vue";import{createElementVNode as l,normalizeStyle as h,openBlock as y,createElementBlock as g}from"vue";import{ref as s,onMounted as E,watch as S}from"vue";var v=l("path",{fill:"currentColor",d:"M224 160a64 64 0 0 0-64 64v576a64 64 0 0 0 64 64h576a64 64 0 0 0 64-64V224a64 64 0 0 0-64-64H224zm0-64h576a128 128 0 0 1 128 128v576a128 128 0 0 1-128 128H224A128 128 0 0 1 96 800V224A128 128 0 0 1 224 96z"},null,-1),z=l("path",{fill:"currentColor",d:"M384 416a64 64 0 1 0 0-128 64 64 0 0 0 0 128zm0 64a128 128 0 1 1 0-256 128 128 0 0 1 0 256z"},null,-1),w=l("path",{fill:"currentColor",d:"M480 320h256q32 0 32 32t-32 32H480q-32 0-32-32t32-32zm160 416a64 64 0 1 0 0-128 64 64 0 0 0 0 128zm0 64a128 128 0 1 1 0-256 128 128 0 0 1 0 256z"},null,-1),x=l("path",{fill:"currentColor",d:"M288 640h256q32 0 32 32t-32 32H288q-32 0-32-32t32-32z"},null,-1),C=[v,z,w,x],c=_({__name:"set-up",props:{size:{type:String,default:""},width:{type:String,default:""},color:{type:String,defualt:""},spin:{type:Boolean,default:!1},fill:{type:String,default:""}},setup(e){let r=e,t=s(null),o=s({fill:"red",width:"100px"});return S(r,n=>{let{size:a,color:f,spin:p,width:i,fill:u}=n,m={animation:p?"loadingCircle 1s infinite linear":void 0,fontSize:a||void 0,width:i||void 0,color:f,fill:u};o.value=Object.assign({...m})},{deep:!0,immediate:!0}),E(()=>{}),(n,a)=>(y(),g("svg",{ref_key:"svg",ref:t,style:h(o.value),viewBox:"0 0 1024 1024",xmlns:"http://www.w3.org/2000/svg"},C,4))}});var d=(e,r)=>{let t=e.__vccOpts||e;for(let[o,n]of r)t[o]=n;return t};var N=d(c,[["__file","set-up.vue"]]);export{N as default};
+
+// unplugin-vue:/Users/chenbin/Desktop/代码/TqIcon/tq-icon/packages/vue/src/components/set-up.vue?vue&type=script&setup=true&lang.ts
+import { defineComponent as _defineComponent } from "vue";
+import { createElementVNode as _createElementVNode, normalizeStyle as _normalizeStyle, openBlock as _openBlock, createElementBlock as _createElementBlock } from "vue";
+import { ref, onMounted, watch } from "vue";
+var _hoisted_1 = /* @__PURE__ */ _createElementVNode("path", {
+  fill: "currentColor",
+  d: "M224 160a64 64 0 0 0-64 64v576a64 64 0 0 0 64 64h576a64 64 0 0 0 64-64V224a64 64 0 0 0-64-64H224zm0-64h576a128 128 0 0 1 128 128v576a128 128 0 0 1-128 128H224A128 128 0 0 1 96 800V224A128 128 0 0 1 224 96z"
+}, null, -1);
+var _hoisted_2 = /* @__PURE__ */ _createElementVNode("path", {
+  fill: "currentColor",
+  d: "M384 416a64 64 0 1 0 0-128 64 64 0 0 0 0 128zm0 64a128 128 0 1 1 0-256 128 128 0 0 1 0 256z"
+}, null, -1);
+var _hoisted_3 = /* @__PURE__ */ _createElementVNode("path", {
+  fill: "currentColor",
+  d: "M480 320h256q32 0 32 32t-32 32H480q-32 0-32-32t32-32zm160 416a64 64 0 1 0 0-128 64 64 0 0 0 0 128zm0 64a128 128 0 1 1 0-256 128 128 0 0 1 0 256z"
+}, null, -1);
+var _hoisted_4 = /* @__PURE__ */ _createElementVNode("path", {
+  fill: "currentColor",
+  d: "M288 640h256q32 0 32 32t-32 32H288q-32 0-32-32t32-32z"
+}, null, -1);
+var _hoisted_5 = [
+  _hoisted_1,
+  _hoisted_2,
+  _hoisted_3,
+  _hoisted_4
+];
+var set_up_vue_vue_type_script_setup_true_lang_default = /* @__PURE__ */ _defineComponent({
+  __name: "set-up",
+  props: {
+    size: {
+      type: String,
+      default: ""
+    },
+    width: {
+      type: String,
+      default: ""
+    },
+    color: {
+      type: String,
+      defualt: ""
+    },
+    spin: {
+      type: Boolean,
+      default: false
+    },
+    fill: {
+      type: String,
+      default: ""
+    }
+  },
+  setup(__props) {
+    const props = __props;
+    const svg = ref(null);
+    const styleSvg = ref({ fill: "red", width: "100px" });
+    watch(
+      props,
+      (newVal) => {
+        const { size, color, spin, width, fill } = newVal;
+        const styleCss = {
+          animation: spin ? "loadingCircle 1s infinite linear" : void 0,
+          fontSize: size ? size : void 0,
+          width: width ? width : void 0,
+          color,
+          fill
+        };
+        styleSvg.value = Object.assign({ ...styleCss });
+      },
+      { deep: true, immediate: true }
+    );
+    onMounted(() => {
+    });
+    return (_ctx, _cache) => {
+      return _openBlock(), _createElementBlock("svg", {
+        ref_key: "svg",
+        ref: svg,
+        style: _normalizeStyle(styleSvg.value),
+        viewBox: "0 0 1024 1024",
+        xmlns: "http://www.w3.org/2000/svg"
+      }, _hoisted_5, 4);
+    };
+  }
+});
+
+// unplugin-vue:/plugin-vue/export-helper
+var export_helper_default = (sfc, props) => {
+  const target = sfc.__vccOpts || sfc;
+  for (const [key, val] of props) {
+    target[key] = val;
+  }
+  return target;
+};
+
+// src/components/set-up.vue
+var set_up_default = /* @__PURE__ */ export_helper_default(set_up_vue_vue_type_script_setup_true_lang_default, [["__file", "set-up.vue"]]);
+export {
+  set_up_default as default
+};

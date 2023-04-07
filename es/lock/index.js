@@ -1,3 +1,90 @@
-/*! Icons Vue v2.0.13 */
+/*! Icons Vue v2.0.14 */
 
-import{defineComponent as _}from"vue";import{createElementVNode as s,normalizeStyle as v,openBlock as h,createElementBlock as y}from"vue";import{ref as i,onMounted as x,watch as k}from"vue";var g=s("path",{fill:"currentColor",d:"M224 448a32 32 0 0 0-32 32v384a32 32 0 0 0 32 32h576a32 32 0 0 0 32-32V480a32 32 0 0 0-32-32H224zm0-64h576a96 96 0 0 1 96 96v384a96 96 0 0 1-96 96H224a96 96 0 0 1-96-96V480a96 96 0 0 1 96-96z"},null,-1),w=s("path",{fill:"currentColor",d:"M512 544a32 32 0 0 1 32 32v192a32 32 0 1 1-64 0V576a32 32 0 0 1 32-32zm192-160v-64a192 192 0 1 0-384 0v64h384zM512 64a256 256 0 0 1 256 256v128H256V320A256 256 0 0 1 512 64z"},null,-1),z=[g,w],c=_({__name:"lock",props:{size:{type:String,default:""},width:{type:String,default:""},color:{type:String,defualt:""},spin:{type:Boolean,default:!1},fill:{type:String,default:""}},setup(e){let l=e,t=i(null),o=i({fill:"red",width:"100px"});return k(l,n=>{let{size:r,color:d,spin:p,width:a,fill:u}=n,m={animation:p?"loadingCircle 1s infinite linear":void 0,fontSize:r||void 0,width:a||void 0,color:d,fill:u};o.value=Object.assign({...m})},{deep:!0,immediate:!0}),x(()=>{}),(n,r)=>(h(),y("svg",{ref_key:"svg",ref:t,style:v(o.value),viewBox:"0 0 1024 1024",xmlns:"http://www.w3.org/2000/svg"},z,4))}});var f=(e,l)=>{let t=e.__vccOpts||e;for(let[o,n]of l)t[o]=n;return t};var N=f(c,[["__file","lock.vue"]]);export{N as default};
+
+// unplugin-vue:/Users/chenbin/Desktop/代码/TqIcon/tq-icon/packages/vue/src/components/lock.vue?vue&type=script&setup=true&lang.ts
+import { defineComponent as _defineComponent } from "vue";
+import { createElementVNode as _createElementVNode, normalizeStyle as _normalizeStyle, openBlock as _openBlock, createElementBlock as _createElementBlock } from "vue";
+import { ref, onMounted, watch } from "vue";
+var _hoisted_1 = /* @__PURE__ */ _createElementVNode("path", {
+  fill: "currentColor",
+  d: "M224 448a32 32 0 0 0-32 32v384a32 32 0 0 0 32 32h576a32 32 0 0 0 32-32V480a32 32 0 0 0-32-32H224zm0-64h576a96 96 0 0 1 96 96v384a96 96 0 0 1-96 96H224a96 96 0 0 1-96-96V480a96 96 0 0 1 96-96z"
+}, null, -1);
+var _hoisted_2 = /* @__PURE__ */ _createElementVNode("path", {
+  fill: "currentColor",
+  d: "M512 544a32 32 0 0 1 32 32v192a32 32 0 1 1-64 0V576a32 32 0 0 1 32-32zm192-160v-64a192 192 0 1 0-384 0v64h384zM512 64a256 256 0 0 1 256 256v128H256V320A256 256 0 0 1 512 64z"
+}, null, -1);
+var _hoisted_3 = [
+  _hoisted_1,
+  _hoisted_2
+];
+var lock_vue_vue_type_script_setup_true_lang_default = /* @__PURE__ */ _defineComponent({
+  __name: "lock",
+  props: {
+    size: {
+      type: String,
+      default: ""
+    },
+    width: {
+      type: String,
+      default: ""
+    },
+    color: {
+      type: String,
+      defualt: ""
+    },
+    spin: {
+      type: Boolean,
+      default: false
+    },
+    fill: {
+      type: String,
+      default: ""
+    }
+  },
+  setup(__props) {
+    const props = __props;
+    const svg = ref(null);
+    const styleSvg = ref({ fill: "red", width: "100px" });
+    watch(
+      props,
+      (newVal) => {
+        const { size, color, spin, width, fill } = newVal;
+        const styleCss = {
+          animation: spin ? "loadingCircle 1s infinite linear" : void 0,
+          fontSize: size ? size : void 0,
+          width: width ? width : void 0,
+          color,
+          fill
+        };
+        styleSvg.value = Object.assign({ ...styleCss });
+      },
+      { deep: true, immediate: true }
+    );
+    onMounted(() => {
+    });
+    return (_ctx, _cache) => {
+      return _openBlock(), _createElementBlock("svg", {
+        ref_key: "svg",
+        ref: svg,
+        style: _normalizeStyle(styleSvg.value),
+        viewBox: "0 0 1024 1024",
+        xmlns: "http://www.w3.org/2000/svg"
+      }, _hoisted_3, 4);
+    };
+  }
+});
+
+// unplugin-vue:/plugin-vue/export-helper
+var export_helper_default = (sfc, props) => {
+  const target = sfc.__vccOpts || sfc;
+  for (const [key, val] of props) {
+    target[key] = val;
+  }
+  return target;
+};
+
+// src/components/lock.vue
+var lock_default = /* @__PURE__ */ export_helper_default(lock_vue_vue_type_script_setup_true_lang_default, [["__file", "lock.vue"]]);
+export {
+  lock_default as default
+};

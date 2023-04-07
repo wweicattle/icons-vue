@@ -30,8 +30,8 @@ const buildBundle = () => {
       ],
       bundle: true,
       format,
-      minifySyntax: true,
-      minifyWhitespace: false,
+      // minifySyntax: true,
+      // minifyWhitespace: false,
       banner: {
         js: `/*! Icons Vue v${version} */\n`,
       },
@@ -70,7 +70,7 @@ const buildBundle = () => {
       }),
     ])
   }
-  return Promise.all([doBuild(true)])
+  return Promise.all([doBuild(false)])
 }
 
 consola.info(chalk.blue("cleaning dist..."))

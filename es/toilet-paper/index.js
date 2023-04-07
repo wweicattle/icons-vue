@@ -1,3 +1,90 @@
-/*! Icons Vue v2.0.13 */
+/*! Icons Vue v2.0.14 */
 
-import{defineComponent as _}from"vue";import{createElementVNode as s,normalizeStyle as h,openBlock as y,createElementBlock as v}from"vue";import{ref as a,onMounted as z,watch as S}from"vue";var g=s("path",{fill:"currentColor",d:"M595.2 128H320a192 192 0 0 0-192 192v576h384V352c0-90.496 32.448-171.2 83.2-224zM736 64c123.712 0 224 128.96 224 288S859.712 640 736 640H576v320H64V320A256 256 0 0 1 320 64h416zM576 352v224h160c84.352 0 160-97.28 160-224s-75.648-224-160-224-160 97.28-160 224z"},null,-1),w=s("path",{fill:"currentColor",d:"M736 448c-35.328 0-64-43.008-64-96s28.672-96 64-96 64 43.008 64 96-28.672 96-64 96z"},null,-1),x=[g,w],c=_({__name:"toilet-paper",props:{size:{type:String,default:""},width:{type:String,default:""},color:{type:String,defualt:""},spin:{type:Boolean,default:!1},fill:{type:String,default:""}},setup(e){let l=e,t=a(null),o=a({fill:"red",width:"100px"});return S(l,n=>{let{size:r,color:f,spin:d,width:i,fill:u}=n,m={animation:d?"loadingCircle 1s infinite linear":void 0,fontSize:r||void 0,width:i||void 0,color:f,fill:u};o.value=Object.assign({...m})},{deep:!0,immediate:!0}),z(()=>{}),(n,r)=>(y(),v("svg",{ref_key:"svg",ref:t,style:h(o.value),viewBox:"0 0 1024 1024",xmlns:"http://www.w3.org/2000/svg"},x,4))}});var p=(e,l)=>{let t=e.__vccOpts||e;for(let[o,n]of l)t[o]=n;return t};var N=p(c,[["__file","toilet-paper.vue"]]);export{N as default};
+
+// unplugin-vue:/Users/chenbin/Desktop/代码/TqIcon/tq-icon/packages/vue/src/components/toilet-paper.vue?vue&type=script&setup=true&lang.ts
+import { defineComponent as _defineComponent } from "vue";
+import { createElementVNode as _createElementVNode, normalizeStyle as _normalizeStyle, openBlock as _openBlock, createElementBlock as _createElementBlock } from "vue";
+import { ref, onMounted, watch } from "vue";
+var _hoisted_1 = /* @__PURE__ */ _createElementVNode("path", {
+  fill: "currentColor",
+  d: "M595.2 128H320a192 192 0 0 0-192 192v576h384V352c0-90.496 32.448-171.2 83.2-224zM736 64c123.712 0 224 128.96 224 288S859.712 640 736 640H576v320H64V320A256 256 0 0 1 320 64h416zM576 352v224h160c84.352 0 160-97.28 160-224s-75.648-224-160-224-160 97.28-160 224z"
+}, null, -1);
+var _hoisted_2 = /* @__PURE__ */ _createElementVNode("path", {
+  fill: "currentColor",
+  d: "M736 448c-35.328 0-64-43.008-64-96s28.672-96 64-96 64 43.008 64 96-28.672 96-64 96z"
+}, null, -1);
+var _hoisted_3 = [
+  _hoisted_1,
+  _hoisted_2
+];
+var toilet_paper_vue_vue_type_script_setup_true_lang_default = /* @__PURE__ */ _defineComponent({
+  __name: "toilet-paper",
+  props: {
+    size: {
+      type: String,
+      default: ""
+    },
+    width: {
+      type: String,
+      default: ""
+    },
+    color: {
+      type: String,
+      defualt: ""
+    },
+    spin: {
+      type: Boolean,
+      default: false
+    },
+    fill: {
+      type: String,
+      default: ""
+    }
+  },
+  setup(__props) {
+    const props = __props;
+    const svg = ref(null);
+    const styleSvg = ref({ fill: "red", width: "100px" });
+    watch(
+      props,
+      (newVal) => {
+        const { size, color, spin, width, fill } = newVal;
+        const styleCss = {
+          animation: spin ? "loadingCircle 1s infinite linear" : void 0,
+          fontSize: size ? size : void 0,
+          width: width ? width : void 0,
+          color,
+          fill
+        };
+        styleSvg.value = Object.assign({ ...styleCss });
+      },
+      { deep: true, immediate: true }
+    );
+    onMounted(() => {
+    });
+    return (_ctx, _cache) => {
+      return _openBlock(), _createElementBlock("svg", {
+        ref_key: "svg",
+        ref: svg,
+        style: _normalizeStyle(styleSvg.value),
+        viewBox: "0 0 1024 1024",
+        xmlns: "http://www.w3.org/2000/svg"
+      }, _hoisted_3, 4);
+    };
+  }
+});
+
+// unplugin-vue:/plugin-vue/export-helper
+var export_helper_default = (sfc, props) => {
+  const target = sfc.__vccOpts || sfc;
+  for (const [key, val] of props) {
+    target[key] = val;
+  }
+  return target;
+};
+
+// src/components/toilet-paper.vue
+var toilet_paper_default = /* @__PURE__ */ export_helper_default(toilet_paper_vue_vue_type_script_setup_true_lang_default, [["__file", "toilet-paper.vue"]]);
+export {
+  toilet_paper_default as default
+};

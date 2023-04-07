@@ -1,3 +1,85 @@
-/*! Icons Vue v2.0.13 */
+/*! Icons Vue v2.0.14 */
 
-import{defineComponent as m}from"vue";import{createElementVNode as _,normalizeStyle as y,openBlock as g,createElementBlock as v}from"vue";import{ref as a,onMounted as x,watch as z}from"vue";var h=_("path",{fill:"currentColor",d:"M128 192v640h768V320H485.76L357.504 192H128zm-32-64h287.872l128.384 128H928a32 32 0 0 1 32 32v576a32 32 0 0 1-32 32H96a32 32 0 0 1-32-32V160a32 32 0 0 1 32-32zm370.752 448-90.496-90.496 45.248-45.248L512 530.752l90.496-90.496 45.248 45.248L557.248 576l90.496 90.496-45.248 45.248L512 621.248l-90.496 90.496-45.248-45.248L466.752 576z"},null,-1),w=[h],s=m({__name:"folder-delete",props:{size:{type:String,default:""},width:{type:String,default:""},color:{type:String,defualt:""},spin:{type:Boolean,default:!1},fill:{type:String,default:""}},setup(e){let l=e,t=a(null),o=a({fill:"red",width:"100px"});return z(l,n=>{let{size:r,color:d,spin:p,width:i,fill:c}=n,u={animation:p?"loadingCircle 1s infinite linear":void 0,fontSize:r||void 0,width:i||void 0,color:d,fill:c};o.value=Object.assign({...u})},{deep:!0,immediate:!0}),x(()=>{}),(n,r)=>(g(),v("svg",{ref_key:"svg",ref:t,style:y(o.value),viewBox:"0 0 1024 1024",xmlns:"http://www.w3.org/2000/svg"},w,4))}});var f=(e,l)=>{let t=e.__vccOpts||e;for(let[o,n]of l)t[o]=n;return t};var V=f(s,[["__file","folder-delete.vue"]]);export{V as default};
+
+// unplugin-vue:/Users/chenbin/Desktop/代码/TqIcon/tq-icon/packages/vue/src/components/folder-delete.vue?vue&type=script&setup=true&lang.ts
+import { defineComponent as _defineComponent } from "vue";
+import { createElementVNode as _createElementVNode, normalizeStyle as _normalizeStyle, openBlock as _openBlock, createElementBlock as _createElementBlock } from "vue";
+import { ref, onMounted, watch } from "vue";
+var _hoisted_1 = /* @__PURE__ */ _createElementVNode("path", {
+  fill: "currentColor",
+  d: "M128 192v640h768V320H485.76L357.504 192H128zm-32-64h287.872l128.384 128H928a32 32 0 0 1 32 32v576a32 32 0 0 1-32 32H96a32 32 0 0 1-32-32V160a32 32 0 0 1 32-32zm370.752 448-90.496-90.496 45.248-45.248L512 530.752l90.496-90.496 45.248 45.248L557.248 576l90.496 90.496-45.248 45.248L512 621.248l-90.496 90.496-45.248-45.248L466.752 576z"
+}, null, -1);
+var _hoisted_2 = [
+  _hoisted_1
+];
+var folder_delete_vue_vue_type_script_setup_true_lang_default = /* @__PURE__ */ _defineComponent({
+  __name: "folder-delete",
+  props: {
+    size: {
+      type: String,
+      default: ""
+    },
+    width: {
+      type: String,
+      default: ""
+    },
+    color: {
+      type: String,
+      defualt: ""
+    },
+    spin: {
+      type: Boolean,
+      default: false
+    },
+    fill: {
+      type: String,
+      default: ""
+    }
+  },
+  setup(__props) {
+    const props = __props;
+    const svg = ref(null);
+    const styleSvg = ref({ fill: "red", width: "100px" });
+    watch(
+      props,
+      (newVal) => {
+        const { size, color, spin, width, fill } = newVal;
+        const styleCss = {
+          animation: spin ? "loadingCircle 1s infinite linear" : void 0,
+          fontSize: size ? size : void 0,
+          width: width ? width : void 0,
+          color,
+          fill
+        };
+        styleSvg.value = Object.assign({ ...styleCss });
+      },
+      { deep: true, immediate: true }
+    );
+    onMounted(() => {
+    });
+    return (_ctx, _cache) => {
+      return _openBlock(), _createElementBlock("svg", {
+        ref_key: "svg",
+        ref: svg,
+        style: _normalizeStyle(styleSvg.value),
+        viewBox: "0 0 1024 1024",
+        xmlns: "http://www.w3.org/2000/svg"
+      }, _hoisted_2, 4);
+    };
+  }
+});
+
+// unplugin-vue:/plugin-vue/export-helper
+var export_helper_default = (sfc, props) => {
+  const target = sfc.__vccOpts || sfc;
+  for (const [key, val] of props) {
+    target[key] = val;
+  }
+  return target;
+};
+
+// src/components/folder-delete.vue
+var folder_delete_default = /* @__PURE__ */ export_helper_default(folder_delete_vue_vue_type_script_setup_true_lang_default, [["__file", "folder-delete.vue"]]);
+export {
+  folder_delete_default as default
+};
