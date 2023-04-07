@@ -1,7 +1,11 @@
-/*! Icons Vue v2.0.15 */
+/*! Icons Vue v2.0.16 */
 
-import*as o from"./component.js";export*from"./component.js";const r={install:(t,{prefix:n=""}={})=>{for(const[e,p]of Object.entries(o))t.component(n+e,p);return t},icons:o};var s=r;export{s as default};
-.component(prefix + key, component);
+import * as icons from "./component.js";
+export * from "./component.js";
+const IconsData = {
+  install: (app, { prefix = "" } = {}) => {
+    for (const [key, component] of Object.entries(icons))
+      app.component(prefix + key, component);
     return app;
   },
   icons
