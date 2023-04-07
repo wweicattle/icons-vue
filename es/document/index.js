@@ -1,3 +1,75 @@
-/*! Icons Vue v2.0.18 */
+/*! Icons Vue v2.0.19 */
 
-import{defineComponent as u}from"vue";import{createElementVNode as _,normalizeStyle as v,openBlock as h,createElementBlock as y}from"vue";import{ref as a,onMounted as w,watch as x}from"vue";var g=_("path",{fill:"currentColor",d:"M832 384H576V128H192v768h640V384zm-26.496-64L640 154.496V320h165.504zM160 64h480l256 256v608a32 32 0 0 1-32 32H160a32 32 0 0 1-32-32V96a32 32 0 0 1 32-32zm160 448h384v64H320v-64zm0-192h160v64H320v-64zm0 384h384v64H320v-64z"},null,-1),z=[g],s=u({__name:"document",props:{size:{type:String,default:""},width:{type:String,default:""},color:{type:String,defualt:""},spin:{type:Boolean,default:!1},fill:{type:String,default:""}},setup(e){let r=e,t=a(null),o=a({fill:"red",width:"100px"});return x(r,n=>{let{size:l,color:c,spin:d,width:i,fill:m}=n,p={animation:d?"loadingCircle 1s infinite linear":void 0,fontSize:l||void 0,width:i||void 0,color:c,fill:m};o.value=Object.assign({...p})},{deep:!0,immediate:!0}),w(()=>{}),(n,l)=>(h(),y("svg",{ref_key:"svg",ref:t,style:v(o.value),viewBox:"0 0 1024 1024",xmlns:"http://www.w3.org/2000/svg"},z,4))}});var f=(e,r)=>{let t=e.__vccOpts||e;for(let[o,n]of r)t[o]=n;return t};var M=f(s,[["__file","document.vue"]]);export{M as default};
+
+// unplugin-vue:/Users/chenbin/Desktop/代码/TqIcon/tq-icon/packages/vue/src/components/document.vue?vue&type=script&setup=true&lang.ts
+import { defineComponent as _defineComponent } from "vue";
+import { createElementVNode as _createElementVNode, normalizeStyle as _normalizeStyle, openBlock as _openBlock, createElementBlock as _createElementBlock } from "vue";
+import { ref, onMounted, watch } from "vue";
+var _hoisted_1 = /* @__PURE__ */ _createElementVNode("path", {
+  fill: "currentColor",
+  d: "M832 384H576V128H192v768h640V384zm-26.496-64L640 154.496V320h165.504zM160 64h480l256 256v608a32 32 0 0 1-32 32H160a32 32 0 0 1-32-32V96a32 32 0 0 1 32-32zm160 448h384v64H320v-64zm0-192h160v64H320v-64zm0 384h384v64H320v-64z"
+}, null, -1), _hoisted_2 = [
+  _hoisted_1
+], document_vue_vue_type_script_setup_true_lang_default = /* @__PURE__ */ _defineComponent({
+  __name: "document",
+  props: {
+    size: {
+      type: String,
+      default: ""
+    },
+    width: {
+      type: String,
+      default: ""
+    },
+    color: {
+      type: String,
+      defualt: ""
+    },
+    spin: {
+      type: Boolean,
+      default: !1
+    },
+    fill: {
+      type: String,
+      default: ""
+    }
+  },
+  setup(__props) {
+    let props = __props, svg = ref(null), styleSvg = ref({ fill: "red", width: "100px" });
+    return watch(
+      props,
+      (newVal) => {
+        let { size, color, spin, width, fill } = newVal, styleCss = {
+          animation: spin ? "loadingCircle 1s infinite linear" : void 0,
+          fontSize: size || void 0,
+          width: width || void 0,
+          color,
+          fill
+        };
+        styleSvg.value = Object.assign({ ...styleCss });
+      },
+      { deep: !0, immediate: !0 }
+    ), onMounted(() => {
+    }), (_ctx, _cache) => (_openBlock(), _createElementBlock("svg", {
+      ref_key: "svg",
+      ref: svg,
+      style: _normalizeStyle(styleSvg.value),
+      viewBox: "0 0 1024 1024",
+      xmlns: "http://www.w3.org/2000/svg"
+    }, _hoisted_2, 4));
+  }
+});
+
+// unplugin-vue:/plugin-vue/export-helper
+var export_helper_default = (sfc, props) => {
+  let target = sfc.__vccOpts || sfc;
+  for (let [key, val] of props)
+    target[key] = val;
+  return target;
+};
+
+// src/components/document.vue
+var document_default = /* @__PURE__ */ export_helper_default(document_vue_vue_type_script_setup_true_lang_default, [["__file", "document.vue"]]);
+export {
+  document_default as default
+};
