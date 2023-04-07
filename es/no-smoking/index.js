@@ -1,4 +1,4 @@
-/*! Icons Vue v2.0.14 */
+/*! Icons Vue v2.0.15 */
 
 
 // unplugin-vue:/Users/chenbin/Desktop/代码/TqIcon/tq-icon/packages/vue/src/components/no-smoking.vue?vue&type=script&setup=true&lang.ts
@@ -8,11 +8,9 @@ import { ref, onMounted, watch } from "vue";
 var _hoisted_1 = /* @__PURE__ */ _createElementVNode("path", {
   fill: "currentColor",
   d: "M440.256 576H256v128h56.256l-64 64H224a32 32 0 0 1-32-32V544a32 32 0 0 1 32-32h280.256l-64 64zm143.488 128H704V583.744L775.744 512H928a32 32 0 0 1 32 32v192a32 32 0 0 1-32 32H519.744l64-64zM768 576v128h128V576H768zm-29.696-207.552 45.248 45.248-497.856 497.856-45.248-45.248zM256 64h64v320h-64zM128 192h64v192h-64zM64 512h64v256H64z"
-}, null, -1);
-var _hoisted_2 = [
+}, null, -1), _hoisted_2 = [
   _hoisted_1
-];
-var no_smoking_vue_vue_type_script_setup_true_lang_default = /* @__PURE__ */ _defineComponent({
+], no_smoking_vue_vue_type_script_setup_true_lang_default = /* @__PURE__ */ _defineComponent({
   __name: "no-smoking",
   props: {
     size: {
@@ -29,7 +27,7 @@ var no_smoking_vue_vue_type_script_setup_true_lang_default = /* @__PURE__ */ _de
     },
     spin: {
       type: Boolean,
-      default: false
+      default: !1
     },
     fill: {
       type: String,
@@ -37,44 +35,36 @@ var no_smoking_vue_vue_type_script_setup_true_lang_default = /* @__PURE__ */ _de
     }
   },
   setup(__props) {
-    const props = __props;
-    const svg = ref(null);
-    const styleSvg = ref({ fill: "red", width: "100px" });
-    watch(
+    let props = __props, svg = ref(null), styleSvg = ref({ fill: "red", width: "100px" });
+    return watch(
       props,
       (newVal) => {
-        const { size, color, spin, width, fill } = newVal;
-        const styleCss = {
+        let { size, color, spin, width, fill } = newVal, styleCss = {
           animation: spin ? "loadingCircle 1s infinite linear" : void 0,
-          fontSize: size ? size : void 0,
-          width: width ? width : void 0,
+          fontSize: size || void 0,
+          width: width || void 0,
           color,
           fill
         };
         styleSvg.value = Object.assign({ ...styleCss });
       },
-      { deep: true, immediate: true }
-    );
-    onMounted(() => {
-    });
-    return (_ctx, _cache) => {
-      return _openBlock(), _createElementBlock("svg", {
-        ref_key: "svg",
-        ref: svg,
-        style: _normalizeStyle(styleSvg.value),
-        viewBox: "0 0 1024 1024",
-        xmlns: "http://www.w3.org/2000/svg"
-      }, _hoisted_2, 4);
-    };
+      { deep: !0, immediate: !0 }
+    ), onMounted(() => {
+    }), (_ctx, _cache) => (_openBlock(), _createElementBlock("svg", {
+      ref_key: "svg",
+      ref: svg,
+      style: _normalizeStyle(styleSvg.value),
+      viewBox: "0 0 1024 1024",
+      xmlns: "http://www.w3.org/2000/svg"
+    }, _hoisted_2, 4));
   }
 });
 
 // unplugin-vue:/plugin-vue/export-helper
 var export_helper_default = (sfc, props) => {
-  const target = sfc.__vccOpts || sfc;
-  for (const [key, val] of props) {
+  let target = sfc.__vccOpts || sfc;
+  for (let [key, val] of props)
     target[key] = val;
-  }
   return target;
 };
 

@@ -1,4 +1,4 @@
-/*! Icons Vue v2.0.14 */
+/*! Icons Vue v2.0.15 */
 
 
 // unplugin-vue:/Users/chenbin/Desktop/代码/TqIcon/tq-icon/packages/vue/src/components/connection.vue?vue&type=script&setup=true&lang.ts
@@ -8,16 +8,13 @@ import { ref, onMounted, watch } from "vue";
 var _hoisted_1 = /* @__PURE__ */ _createElementVNode("path", {
   fill: "currentColor",
   d: "M640 384v64H448a128 128 0 0 0-128 128v128a128 128 0 0 0 128 128h320a128 128 0 0 0 128-128V576a128 128 0 0 0-64-110.848V394.88c74.56 26.368 128 97.472 128 181.056v128a192 192 0 0 1-192 192H448a192 192 0 0 1-192-192V576a192 192 0 0 1 192-192h192z"
-}, null, -1);
-var _hoisted_2 = /* @__PURE__ */ _createElementVNode("path", {
+}, null, -1), _hoisted_2 = /* @__PURE__ */ _createElementVNode("path", {
   fill: "currentColor",
   d: "M384 640v-64h192a128 128 0 0 0 128-128V320a128 128 0 0 0-128-128H256a128 128 0 0 0-128 128v128a128 128 0 0 0 64 110.848v70.272A192.064 192.064 0 0 1 64 448V320a192 192 0 0 1 192-192h320a192 192 0 0 1 192 192v128a192 192 0 0 1-192 192H384z"
-}, null, -1);
-var _hoisted_3 = [
+}, null, -1), _hoisted_3 = [
   _hoisted_1,
   _hoisted_2
-];
-var connection_vue_vue_type_script_setup_true_lang_default = /* @__PURE__ */ _defineComponent({
+], connection_vue_vue_type_script_setup_true_lang_default = /* @__PURE__ */ _defineComponent({
   __name: "connection",
   props: {
     size: {
@@ -34,7 +31,7 @@ var connection_vue_vue_type_script_setup_true_lang_default = /* @__PURE__ */ _de
     },
     spin: {
       type: Boolean,
-      default: false
+      default: !1
     },
     fill: {
       type: String,
@@ -42,44 +39,36 @@ var connection_vue_vue_type_script_setup_true_lang_default = /* @__PURE__ */ _de
     }
   },
   setup(__props) {
-    const props = __props;
-    const svg = ref(null);
-    const styleSvg = ref({ fill: "red", width: "100px" });
-    watch(
+    let props = __props, svg = ref(null), styleSvg = ref({ fill: "red", width: "100px" });
+    return watch(
       props,
       (newVal) => {
-        const { size, color, spin, width, fill } = newVal;
-        const styleCss = {
+        let { size, color, spin, width, fill } = newVal, styleCss = {
           animation: spin ? "loadingCircle 1s infinite linear" : void 0,
-          fontSize: size ? size : void 0,
-          width: width ? width : void 0,
+          fontSize: size || void 0,
+          width: width || void 0,
           color,
           fill
         };
         styleSvg.value = Object.assign({ ...styleCss });
       },
-      { deep: true, immediate: true }
-    );
-    onMounted(() => {
-    });
-    return (_ctx, _cache) => {
-      return _openBlock(), _createElementBlock("svg", {
-        ref_key: "svg",
-        ref: svg,
-        style: _normalizeStyle(styleSvg.value),
-        viewBox: "0 0 1024 1024",
-        xmlns: "http://www.w3.org/2000/svg"
-      }, _hoisted_3, 4);
-    };
+      { deep: !0, immediate: !0 }
+    ), onMounted(() => {
+    }), (_ctx, _cache) => (_openBlock(), _createElementBlock("svg", {
+      ref_key: "svg",
+      ref: svg,
+      style: _normalizeStyle(styleSvg.value),
+      viewBox: "0 0 1024 1024",
+      xmlns: "http://www.w3.org/2000/svg"
+    }, _hoisted_3, 4));
   }
 });
 
 // unplugin-vue:/plugin-vue/export-helper
 var export_helper_default = (sfc, props) => {
-  const target = sfc.__vccOpts || sfc;
-  for (const [key, val] of props) {
+  let target = sfc.__vccOpts || sfc;
+  for (let [key, val] of props)
     target[key] = val;
-  }
   return target;
 };
 

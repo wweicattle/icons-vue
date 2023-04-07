@@ -1,4 +1,4 @@
-/*! Icons Vue v2.0.14 */
+/*! Icons Vue v2.0.15 */
 
 
 // unplugin-vue:/Users/chenbin/Desktop/代码/TqIcon/tq-icon/packages/vue/src/components/shopping-cart.vue?vue&type=script&setup=true&lang.ts
@@ -8,11 +8,9 @@ import { ref, onMounted, watch } from "vue";
 var _hoisted_1 = /* @__PURE__ */ _createElementVNode("path", {
   fill: "currentColor",
   d: "M432 928a48 48 0 1 1 0-96 48 48 0 0 1 0 96zm320 0a48 48 0 1 1 0-96 48 48 0 0 1 0 96zM96 128a32 32 0 0 1 0-64h160a32 32 0 0 1 31.36 25.728L320.64 256H928a32 32 0 0 1 31.296 38.72l-96 448A32 32 0 0 1 832 768H384a32 32 0 0 1-31.36-25.728L229.76 128H96zm314.24 576h395.904l82.304-384H333.44l76.8 384z"
-}, null, -1);
-var _hoisted_2 = [
+}, null, -1), _hoisted_2 = [
   _hoisted_1
-];
-var shopping_cart_vue_vue_type_script_setup_true_lang_default = /* @__PURE__ */ _defineComponent({
+], shopping_cart_vue_vue_type_script_setup_true_lang_default = /* @__PURE__ */ _defineComponent({
   __name: "shopping-cart",
   props: {
     size: {
@@ -29,7 +27,7 @@ var shopping_cart_vue_vue_type_script_setup_true_lang_default = /* @__PURE__ */ 
     },
     spin: {
       type: Boolean,
-      default: false
+      default: !1
     },
     fill: {
       type: String,
@@ -37,44 +35,36 @@ var shopping_cart_vue_vue_type_script_setup_true_lang_default = /* @__PURE__ */ 
     }
   },
   setup(__props) {
-    const props = __props;
-    const svg = ref(null);
-    const styleSvg = ref({ fill: "red", width: "100px" });
-    watch(
+    let props = __props, svg = ref(null), styleSvg = ref({ fill: "red", width: "100px" });
+    return watch(
       props,
       (newVal) => {
-        const { size, color, spin, width, fill } = newVal;
-        const styleCss = {
+        let { size, color, spin, width, fill } = newVal, styleCss = {
           animation: spin ? "loadingCircle 1s infinite linear" : void 0,
-          fontSize: size ? size : void 0,
-          width: width ? width : void 0,
+          fontSize: size || void 0,
+          width: width || void 0,
           color,
           fill
         };
         styleSvg.value = Object.assign({ ...styleCss });
       },
-      { deep: true, immediate: true }
-    );
-    onMounted(() => {
-    });
-    return (_ctx, _cache) => {
-      return _openBlock(), _createElementBlock("svg", {
-        ref_key: "svg",
-        ref: svg,
-        style: _normalizeStyle(styleSvg.value),
-        viewBox: "0 0 1024 1024",
-        xmlns: "http://www.w3.org/2000/svg"
-      }, _hoisted_2, 4);
-    };
+      { deep: !0, immediate: !0 }
+    ), onMounted(() => {
+    }), (_ctx, _cache) => (_openBlock(), _createElementBlock("svg", {
+      ref_key: "svg",
+      ref: svg,
+      style: _normalizeStyle(styleSvg.value),
+      viewBox: "0 0 1024 1024",
+      xmlns: "http://www.w3.org/2000/svg"
+    }, _hoisted_2, 4));
   }
 });
 
 // unplugin-vue:/plugin-vue/export-helper
 var export_helper_default = (sfc, props) => {
-  const target = sfc.__vccOpts || sfc;
-  for (const [key, val] of props) {
+  let target = sfc.__vccOpts || sfc;
+  for (let [key, val] of props)
     target[key] = val;
-  }
   return target;
 };
 

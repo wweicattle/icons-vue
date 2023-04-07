@@ -1,4 +1,4 @@
-/*! Icons Vue v2.0.14 */
+/*! Icons Vue v2.0.15 */
 
 
 // unplugin-vue:/Users/chenbin/Desktop/代码/TqIcon/tq-icon/packages/vue/src/components/compass.vue?vue&type=script&setup=true&lang.ts
@@ -8,16 +8,13 @@ import { ref, onMounted, watch } from "vue";
 var _hoisted_1 = /* @__PURE__ */ _createElementVNode("path", {
   fill: "currentColor",
   d: "M512 896a384 384 0 1 0 0-768 384 384 0 0 0 0 768zm0 64a448 448 0 1 1 0-896 448 448 0 0 1 0 896z"
-}, null, -1);
-var _hoisted_2 = /* @__PURE__ */ _createElementVNode("path", {
+}, null, -1), _hoisted_2 = /* @__PURE__ */ _createElementVNode("path", {
   fill: "currentColor",
   d: "M725.888 315.008C676.48 428.672 624 513.28 568.576 568.64c-55.424 55.424-139.968 107.904-253.568 157.312a12.8 12.8 0 0 1-16.896-16.832c49.536-113.728 102.016-198.272 157.312-253.632 55.36-55.296 139.904-107.776 253.632-157.312a12.8 12.8 0 0 1 16.832 16.832z"
-}, null, -1);
-var _hoisted_3 = [
+}, null, -1), _hoisted_3 = [
   _hoisted_1,
   _hoisted_2
-];
-var compass_vue_vue_type_script_setup_true_lang_default = /* @__PURE__ */ _defineComponent({
+], compass_vue_vue_type_script_setup_true_lang_default = /* @__PURE__ */ _defineComponent({
   __name: "compass",
   props: {
     size: {
@@ -34,7 +31,7 @@ var compass_vue_vue_type_script_setup_true_lang_default = /* @__PURE__ */ _defin
     },
     spin: {
       type: Boolean,
-      default: false
+      default: !1
     },
     fill: {
       type: String,
@@ -42,44 +39,36 @@ var compass_vue_vue_type_script_setup_true_lang_default = /* @__PURE__ */ _defin
     }
   },
   setup(__props) {
-    const props = __props;
-    const svg = ref(null);
-    const styleSvg = ref({ fill: "red", width: "100px" });
-    watch(
+    let props = __props, svg = ref(null), styleSvg = ref({ fill: "red", width: "100px" });
+    return watch(
       props,
       (newVal) => {
-        const { size, color, spin, width, fill } = newVal;
-        const styleCss = {
+        let { size, color, spin, width, fill } = newVal, styleCss = {
           animation: spin ? "loadingCircle 1s infinite linear" : void 0,
-          fontSize: size ? size : void 0,
-          width: width ? width : void 0,
+          fontSize: size || void 0,
+          width: width || void 0,
           color,
           fill
         };
         styleSvg.value = Object.assign({ ...styleCss });
       },
-      { deep: true, immediate: true }
-    );
-    onMounted(() => {
-    });
-    return (_ctx, _cache) => {
-      return _openBlock(), _createElementBlock("svg", {
-        ref_key: "svg",
-        ref: svg,
-        style: _normalizeStyle(styleSvg.value),
-        viewBox: "0 0 1024 1024",
-        xmlns: "http://www.w3.org/2000/svg"
-      }, _hoisted_3, 4);
-    };
+      { deep: !0, immediate: !0 }
+    ), onMounted(() => {
+    }), (_ctx, _cache) => (_openBlock(), _createElementBlock("svg", {
+      ref_key: "svg",
+      ref: svg,
+      style: _normalizeStyle(styleSvg.value),
+      viewBox: "0 0 1024 1024",
+      xmlns: "http://www.w3.org/2000/svg"
+    }, _hoisted_3, 4));
   }
 });
 
 // unplugin-vue:/plugin-vue/export-helper
 var export_helper_default = (sfc, props) => {
-  const target = sfc.__vccOpts || sfc;
-  for (const [key, val] of props) {
+  let target = sfc.__vccOpts || sfc;
+  for (let [key, val] of props)
     target[key] = val;
-  }
   return target;
 };
 
