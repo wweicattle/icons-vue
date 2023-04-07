@@ -1,4 +1,4 @@
-/*! Icons Vue v2.0.21 */
+/*! Icons Vue v2.0.22 */
 
 "use strict";
 (() => {
