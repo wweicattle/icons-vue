@@ -1,6 +1,6 @@
 {
   "name": "@wwcattlewei/icons-vue",
-  "version": "2.0.18",
+  "version": "2.0.19",
   "description": "this is Vue Icons For Svg",
   "main": "./lib/index.js",
   "module": "./es/index.js",
