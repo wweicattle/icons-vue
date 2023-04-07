@@ -1,4 +1,4 @@
-/*! Icons Vue v2.0.19 */
+/*! Icons Vue v2.0.20 */
 
 
 // unplugin-vue:/Users/chenbin/Desktop/代码/TqIcon/tq-icon/packages/vue/src/components/star-filled.vue?vue&type=script&setup=true&lang.ts

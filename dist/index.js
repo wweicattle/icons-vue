@@ -1,4 +1,4 @@
-/*! Icons Vue v2.0.19 */
+/*! Icons Vue v2.0.20 */
 
 "use strict";
 (() => {
@@ -27912,4 +27912,14 @@ Component that was made reactive: `, type)), createBaseVNode(type, props, childr
 
   // src/components/zoom-out.vue
   var zoom_out_default = /* @__PURE__ */ export_helper_default(zoom_out_vue_vue_type_script_setup_true_lang_default, [["__file", "zoom-out.vue"]]);
+
+  // src/setting/index.ts
+  var instal = {
+    install: (app, { prefix = "" } = {}) => {
+      for (let [key, component] of Object.entries(components_exports))
+        app.component(prefix + key, component);
+      return app;
+    },
+    icons: components_exports
+  }, setting_default2 = instal;
 })();
