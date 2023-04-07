@@ -1,4 +1,4 @@
-/*! Icons Vue v2.0.22 */
+/*! Icons Vue v2.0.23 */
 
 
 // unplugin-vue:/Users/chenbin/Desktop/代码/TqIcon/tq-icon/packages/vue/src/components/success-filled.vue?vue&type=script&setup=true&lang.ts

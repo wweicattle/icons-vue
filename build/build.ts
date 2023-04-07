@@ -6,7 +6,7 @@ import GlobalsPlugin from "esbuild-plugin-globals"
 import vue from "unplugin-vue/esbuild"
 import { emptyDir } from "fs-extra"
 import { version } from "../package.json"
-import { pathOutputModule, pathSrc } from "./paths"
+import { pathOutputModule, pathSrc,pathLibOutput,pathEsOutput } from "./paths"
 import glob from "fast-glob"
 import type { BuildOptions, Format } from "esbuild"
 
@@ -60,7 +60,7 @@ const buildBundle = () => {
       build({
         ...getBuildOptions("cjs"),
         entryNames: "lib/" + `[name]/index`,
-        outExtension: { ".js": ".cjs" },
+        outExtension: { ".js": ".js" },
         minify,
       }),
     ])
@@ -68,6 +68,10 @@ const buildBundle = () => {
   return Promise.all([doBuild(false)])
 }
 
-consola.info(chalk.blue("building..."))
+consola.info(chalk.blue("building... clear lib and es"))
+// 清空 lib es
+await emptyDir(pathLibOutput)
+await emptyDir(pathEsOutput )
+
 // 需要遍历所有的组件打包成各自的文件夹
 await buildBundle()
