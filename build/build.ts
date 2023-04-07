@@ -57,11 +57,6 @@ const buildBundle = () => {
         entryNames: "es/" + `[name]/index`,
         minify,
       }),
-      // build({
-      //   ...getBuildOptions("iife"),
-      //   entryNames: "iife/" + `[name]/index.iife${minify ? ".min" : ""}`,
-      //   minify,
-      // }),
       build({
         ...getBuildOptions("cjs"),
         entryNames: "lib/" + `[name]/index`,
@@ -73,8 +68,6 @@ const buildBundle = () => {
   return Promise.all([doBuild(false)])
 }
 
-consola.info(chalk.blue("cleaning dist..."))
-// await emptyDir(pathOutput)
 consola.info(chalk.blue("building..."))
 // 需要遍历所有的组件打包成各自的文件夹
 await buildBundle()

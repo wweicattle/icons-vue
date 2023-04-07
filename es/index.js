@@ -1,4 +1,4 @@
-/*! Icons Vue v2.0.20 */
+/*! Icons Vue v2.0.21 */
 
 import * as icons from "./component.js";
 export * from "./component.js";

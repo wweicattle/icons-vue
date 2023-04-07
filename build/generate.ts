@@ -52,18 +52,7 @@ const generateEntry = async (files: string[]) => {
   await writeFile(path.resolve(pathComponents, "index.ts"), code, "utf-8")
 }
 
-// const generateLibEntry = async (files: string[]) => {
-//   const code = formatCode(
-//     files
-//       .map((file) => {
-//         const { filename, componentName } = getName(file)
-//         return `export { default as ${componentName} } from './${filename}'`
-//       })
-//       .join("\n")
-//   )
-//   await writeFile(path.resolve(pathRoot, "lib/component.js"), code, "utf-8")
 
-// }
 
 const getName = (file: string) => {
   const filename = path.basename(file).replace(".svg", "")

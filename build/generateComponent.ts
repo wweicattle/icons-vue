@@ -8,16 +8,6 @@ import { emptyDir } from 'fs-extra'
 import { version } from '../package.json'
 import { pathOutput, pathSrc } from './paths'
 import type { BuildOptions, Format } from 'esbuild'
-const envPlugin = {
-  name: 'env',
-  setup(build: any) {
-    // namespace to reserve them for this plugin.
-    build.onResolve({ filter: /^env$/ }, (args) => ({
-      path: args.path,
-      namespace: 'env-ns',
-    }))
-  },
-}
 
 const buildBundle = () => {
   const getBuildOptions = (format: Format) => {
@@ -28,7 +18,6 @@ const buildBundle = () => {
       target: 'es2018',
       platform: 'neutral',
       plugins: [
-        envPlugin,
         vue({
           isProduction: true,
           sourceMap: false,
@@ -52,11 +41,6 @@ const buildBundle = () => {
         ...getBuildOptions('esm'),
         entryNames: 'es/'+`[name]`,
       }),
-      // build({
-      //   ...getBuildOptions('iife'),
-      //   entryNames: 'iife'+`[name].iife`,
-      //   minify,
-      // }),
       build({
         ...getBuildOptions('cjs'),
         entryNames: 'lib/'+`[name]`,
@@ -70,5 +54,4 @@ const buildBundle = () => {
 
 consola.info(chalk.blue('cleaning dist...'))
 await emptyDir(pathOutput)
-consola.info(chalk.blue('building...'))
 await buildBundle()
