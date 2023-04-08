@@ -1,6 +1,6 @@
 {
   "name": "@wwcattlewei/icons-vue",
-  "version": "2.0.25",
+  "version": "2.0.26",
   "description": "this is Vue Icons For Svg",
   "main": "./lib/index.js",
   "module": "./es/index.js",
@@ -35,7 +35,6 @@
       "require": "./es/index.js",
       "import": "./es/index.js"
     }
-    
   },
   "dependencies": {
     "@pnpm/logger": "^5.0.0",
