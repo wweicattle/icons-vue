@@ -1,4 +1,4 @@
-/*! Icons Vue v2.0.24 */
+/*! Icons Vue v2.0.25 */
 
 import { default as default2 } from "./add-location/index.js";
 import { default as default3 } from "./aim/index.js";

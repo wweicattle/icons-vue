@@ -15,7 +15,7 @@ const buildBundle = () => {
       entryPoints: [
         path.resolve(pathSrc, 'setting/component.ts'),
       ],
-      target: 'es2018',
+      target: ['esnext'],
       platform: 'neutral',
       plugins: [
         vue({

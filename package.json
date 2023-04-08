@@ -30,7 +30,12 @@
       "require": "./lib/index.js",
       "import": "./es/index.js"
     },
-    "./*": "./*"
+    "./*": "./*",
+    "./es": {
+      "require": "./es/index.js",
+      "import": "./es/index.js"
+    }
+    
   },
   "dependencies": {
     "@pnpm/logger": "^5.0.0",
