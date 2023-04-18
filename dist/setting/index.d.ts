@@ -1,5 +1,5 @@
-import type { App } from "vue";
-import "./index.css";
+import type { App } from 'vue';
+import './index.css';
 export interface InstallOptions {
     /** @default `Tq` */
     prefix?: string;
@@ -9,4 +9,4 @@ declare const instal: {
     icons: any;
 };
 export default instal;
-export * from "../components";
+export * from '../components';

@@ -8,30 +8,31 @@ import { emptyDir } from 'fs-extra'
 import { version } from '../package.json'
 import { pathOutput, pathSrc } from './paths'
 import type { BuildOptions, Format } from 'esbuild'
-import { format } from "prettier"
-import type { BuiltInParserName } from "prettier"
-import camelcase from "camelcase"
-import { readFile, writeFile } from "node:fs/promises"
-import { pathComponents } from "./paths"
-import glob from "fast-glob"
+import { format } from 'prettier'
+import type { BuiltInParserName } from 'prettier'
+import camelcase from 'camelcase'
+import { readFile, writeFile } from 'node:fs/promises'
+import { pathComponents } from './paths'
+import glob from 'fast-glob'
 
-const formatCode = (code: string, parser: BuiltInParserName = "typescript") =>
+const formatCode = (code: string, parser: BuiltInParserName = 'typescript') =>
   format(code, {
     parser,
     semi: false,
-    singleQuote: true,
+    singleQuote: true
   })
 
-
-  const getName = (file: string) => {
-    const filename = path.basename(file).replace(".svg", "")
-    const componentName = camelcase(filename, { pascalCase: true })
-    return {
-      filename,
-      componentName,
-    }
+const getName = (file: string) => {
+  const filename = path.basename(file).replace('.svg', '')
+  const componentName = camelcase(filename, {
+    pascalCase: true
+  })
+  return {
+    filename,
+    componentName
   }
-  
+}
+
 const generateEntry = async (files: string[]) => {
   const code = formatCode(
     files
@@ -39,31 +40,29 @@ const generateEntry = async (files: string[]) => {
         const { filename, componentName } = getName(file)
         return `export { default as ${componentName} } from './${filename}.vue'`
       })
-      .join("\n")
+      .join('\n')
   )
-  await writeFile(path.resolve(pathComponents, "index.ts"), code, "utf-8")
+  await writeFile(path.resolve(pathComponents, 'index.ts'), code, 'utf-8')
 }
 const buildBundle = () => {
   const getBuildOptions = (format: Format) => {
     const options: BuildOptions = {
-      entryPoints: [
-        path.resolve(pathSrc, 'setting/index.ts'),
-      ],
+      entryPoints: [path.resolve(pathSrc, 'setting/index.ts')],
       target: 'es2018',
       platform: 'neutral',
       plugins: [
         vue({
           isProduction: true,
-          sourceMap: false,
-        }),
+          sourceMap: false
+        })
       ],
       bundle: true,
       format,
       minifySyntax: true,
       banner: {
-        js: `/*! Icons Vue v${version} */\n`,
+        js: `/*! Icons Vue v${version} */\n`
       },
-      outdir: pathOutput,
+      outdir: pathOutput
     }
 
     return options
@@ -73,8 +72,8 @@ const buildBundle = () => {
       build({
         ...getBuildOptions('iife'),
         entryNames: `[name]${minify ? '.min' : ''}`,
-        minify,
-      }),
+        minify
+      })
     ])
   }
 
@@ -82,9 +81,12 @@ const buildBundle = () => {
 }
 const getSvgFiles = async () => {
   const dir = process.cwd()
-  console.log(dir.replace("/vue", "/svg"),111);
-  
-  return glob("*.svg", { cwd: dir.replace("/vue", "/svg"), absolute: true })
+  console.log(dir.replace('/vue', '/svg'), 111)
+
+  return glob('*.svg', {
+    cwd: dir.replace('/vue', '/svg'),
+    absolute: true
+  })
 }
 
 const files = await getSvgFiles()

@@ -1,4 +1,4 @@
-/*! Icons Vue v2.0.25 */
+/*! Icons Vue v2.0.26 */
 
 
 // unplugin-vue:/Users/chenbin/Desktop/代码/TqIcon/tq-icon/packages/vue/src/components/shop.vue?vue&type=script&setup=true&lang.ts

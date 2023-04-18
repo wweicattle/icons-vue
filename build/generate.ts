@@ -1,28 +1,31 @@
-import path from "node:path"
-import glob from "fast-glob"
-import consola from "consola"
-import chalk from "chalk"
-import { pathComponents, pathRoot, pathSrc, pathEs, pathLib } from "./paths"
-import { emptyDir, ensureDir } from "fs-extra"
-import { readFile, writeFile } from "node:fs/promises"
-import { format } from "prettier"
-import type { BuiltInParserName } from "prettier"
-import camelcase from "camelcase"
+import path from 'node:path'
+import glob from 'fast-glob'
+import consola from 'consola'
+import chalk from 'chalk'
+import { pathComponents, pathRoot, pathSrc, pathEs, pathLib } from './paths'
+import { emptyDir, ensureDir } from 'fs-extra'
+import { readFile, writeFile } from 'node:fs/promises'
+import { format } from 'prettier'
+import type { BuiltInParserName } from 'prettier'
+import camelcase from 'camelcase'
 
-consola.info(chalk.blue("generating vue components"))
+consola.info(chalk.blue('generating vue components'))
 
 await ensureDir(pathComponents)
 await emptyDir(pathComponents)
 
 const getSvgFiles = async () => {
   const dir = process.cwd()
-  return glob("*.svg", { cwd: dir.replace("/vue", "/svg"), absolute: true })
+  return glob('*.svg', {
+    cwd: dir.replace('/vue', '/svg'),
+    absolute: true
+  })
 }
-const formatCode = (code: string, parser: BuiltInParserName = "typescript") =>
+const formatCode = (code: string, parser: BuiltInParserName = 'typescript') =>
   format(code, {
     parser,
     semi: false,
-    singleQuote: true,
+    singleQuote: true
   })
 
 const generateEsEntry = async (files: string[]) => {
@@ -32,11 +35,11 @@ const generateEsEntry = async (files: string[]) => {
         const { filename, componentName } = getName(file)
         return `export { default as ${componentName} } from './${filename}/index.js'`
       })
-      .join("\n")
+      .join('\n')
   )
   console.log(pathRoot)
 
-  await writeFile(path.resolve(pathSrc, "setting/component.ts"), code, "utf-8")
+  await writeFile(path.resolve(pathSrc, 'setting/component.ts'), code, 'utf-8')
 }
 const generateEntry = async (files: string[]) => {
   const code = formatCode(
@@ -45,28 +48,28 @@ const generateEntry = async (files: string[]) => {
         const { filename, componentName } = getName(file)
         return `export { default as ${componentName} } from './${filename}.vue'`
       })
-      .join("\n")
+      .join('\n')
   )
   console.log(code)
   console.log(11, pathComponents)
-  await writeFile(path.resolve(pathComponents, "index.ts"), code, "utf-8")
+  await writeFile(path.resolve(pathComponents, 'index.ts'), code, 'utf-8')
 }
 
-
-
 const getName = (file: string) => {
-  const filename = path.basename(file).replace(".svg", "")
-  const componentName = camelcase(filename, { pascalCase: true })
+  const filename = path.basename(file).replace('.svg', '')
+  const componentName = camelcase(filename, {
+    pascalCase: true
+  })
   return {
     filename,
-    componentName,
+    componentName
   }
 }
 
 const transformToVueComponent = async (file: string) => {
-  let content = await readFile(file, "utf-8")
+  let content = await readFile(file, 'utf-8')
   const { filename, componentName } = getName(file)
-  content = content.replace("<svg", '<svg ref="svg" :style="styleSvg"')
+  content = content.replace('<svg', '<svg ref="svg" :style="styleSvg"')
   const vue = formatCode(
     `
     <template>
@@ -115,16 +118,16 @@ const transformToVueComponent = async (file: string) => {
   })
   </script>
   `,
-    "vue"
+    'vue'
   )
-  writeFile(path.resolve(pathComponents, `${filename}.vue`), vue, "utf-8")
+  writeFile(path.resolve(pathComponents, `${filename}.vue`), vue, 'utf-8')
 }
 const files = await getSvgFiles()
 // 需要进行对svg图片进行压缩
-consola.info(chalk.blue("generating vue files"))
+consola.info(chalk.blue('generating vue files'))
 await Promise.all(files.map((file) => transformToVueComponent(file)))
 
-consola.info(chalk.blue("generating entry file"))
+consola.info(chalk.blue('generating entry file'))
 // 生成入口文件
 await generateEsEntry(files)
 await generateEntry(files)

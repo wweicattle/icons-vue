@@ -1,7 +1,7 @@
 /// <reference types="vite/client" />
-declare module "App.vue"
-declare module "*.vue" {
-  import { App, defineComponent } from "vue"
+declare module 'App.vue'
+declare module '*.vue' {
+  import { App, defineComponent } from 'vue'
   const component: ReturnType<typeof defineComponent> & {
     install(app: App): void
   }
@@ -12,11 +12,11 @@ declare module '*.md' {
   const Component: ComponentOptions
   export default Component
 }
-declare module "axios"
-declare module "wwcattleitem"
-declare module "@wwcattlewei/icons-vue/global"
+declare module 'axios'
+declare module 'wwcattleitem'
+declare module '@wwcattlewei/icons-vue/global'
 
-declare module "@kangc/v-md-editor"
-declare module "prismjs"
-declare module "@kangc/v-md-editor/lib/theme/vuepress.js"
-declare module "./components/index.ts"
+declare module '@kangc/v-md-editor'
+declare module 'prismjs'
+declare module '@kangc/v-md-editor/lib/theme/vuepress.js'
+declare module './components/index.ts'

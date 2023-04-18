@@ -12,42 +12,45 @@ const envPlugin = {
   name: 'env',
   setup(build: any) {
     // namespace to reserve them for this plugin.
-    build.onResolve({ filter: /^env$/ }, (args) => ({
-      path: args.path,
-      namespace: 'env-ns',
-    }))
-  },
+    build.onResolve(
+      {
+        filter: /^env$/
+      },
+      (args) => ({
+        path: args.path,
+        namespace: 'env-ns'
+      })
+    )
+  }
 }
-console.log(323233);
+console.log(323233)
 
 const buildBundle = () => {
   const getBuildOptions = (format: Format) => {
     const options: BuildOptions = {
-      entryPoints: [
-        path.resolve(pathSrc, 'index.ts'),
-      ],
+      entryPoints: [path.resolve(pathSrc, 'index.ts')],
       target: 'es2018',
       platform: 'neutral',
       plugins: [
         envPlugin,
         vue({
           isProduction: true,
-          sourceMap: false,
-        }),
+          sourceMap: false
+        })
       ],
       bundle: true,
       format,
       minifySyntax: true,
       minifyWhitespace: false,
       banner: {
-        js: `/*! Icons Vue v${version} */\n`,
+        js: `/*! Icons Vue v${version} */\n`
       },
-      outdir: pathOutput,
+      outdir: pathOutput
     }
     if (format === 'iife') {
       options.plugins!.push(
         GlobalsPlugin({
-          vue: 'Vue',
+          vue: 'Vue'
         })
       )
       options.globalName = 'ElementPlusIconsVue'
@@ -62,19 +65,21 @@ const buildBundle = () => {
       build({
         ...getBuildOptions('esm'),
         entryNames: `[name]`,
-        minify,
+        minify
       }),
       build({
         ...getBuildOptions('iife'),
         entryNames: `[name].iife`,
-        minify,
+        minify
       }),
       build({
         ...getBuildOptions('cjs'),
         entryNames: `[name]`,
-        outExtension: { '.js': '.cjs' },
-        minify,
-      }),
+        outExtension: {
+          '.js': '.cjs'
+        },
+        minify
+      })
     ])
   }
 

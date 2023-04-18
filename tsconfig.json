@@ -17,7 +17,11 @@
     "types": [],
     "allowJs": true
   },
- 
+
   "include": ["src/setting/index.ts"],
-  "references": [{ "path": "./tsconfig.build.json" }]
+  "references": [
+    {
+      "path": "./tsconfig.build.json"
+    }
+  ]
 }

@@ -12,26 +12,23 @@ import type { BuildOptions, Format } from 'esbuild'
 const buildBundle = () => {
   const getBuildOptions = (format: Format) => {
     const options: BuildOptions = {
-      entryPoints: [
-        path.resolve(pathSrc, 'setting/component.ts'),
-      ],
+      entryPoints: [path.resolve(pathSrc, 'setting/component.ts')],
       target: ['esnext'],
       platform: 'neutral',
       plugins: [
         vue({
           isProduction: true,
-          sourceMap: false,
-        }),
+          sourceMap: false
+        })
       ],
       bundle: false,
       format,
       minifySyntax: true,
       banner: {
-        js: `/*! Icons Vue v${version} */\n`,
+        js: `/*! Icons Vue v${version} */\n`
       },
-      outdir: process.cwd(),
+      outdir: process.cwd()
     }
-  
 
     return options
   }
@@ -39,13 +36,15 @@ const buildBundle = () => {
     await Promise.all([
       build({
         ...getBuildOptions('esm'),
-        entryNames: 'es/'+`[name]`,
+        entryNames: 'es/' + `[name]`
       }),
       build({
         ...getBuildOptions('cjs'),
-        entryNames: 'lib/'+`[name]`,
-        outExtension: { '.js': '.js' },
-      }),
+        entryNames: 'lib/' + `[name]`,
+        outExtension: {
+          '.js': '.js'
+        }
+      })
     ])
   }
 
