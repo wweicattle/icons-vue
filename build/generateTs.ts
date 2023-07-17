@@ -101,9 +101,6 @@ const transformToVueComponent = async (file: string) => {
     }
     styleSvg.value = Object.assign({ ...styleCss })
   }, { deep: true, immediate: true })
-  onMounted(() => {
-  
-  })
   </script>
   `,
     'vue'
@@ -111,7 +108,6 @@ const transformToVueComponent = async (file: string) => {
   writeFile(path.resolve(pathComponents, `${filename}.vue`), vue, 'utf-8')
 }
 const files = await getSvgFiles()
-// console.log(files)
 // 需要进行对svg图片进行压缩
 
 consola.info(chalk.blue('generating vue files'))
